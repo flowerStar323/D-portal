@@ -1,0 +1,782 @@
+
+#loading
+{spinner}
+
+#crumbs1
+{crumbname_{crumb0_view}}
+
+#crumbs2
+<a href="{crumb0_hash}" class="crumb first">{crumbname_{crumb0_view}}</a> >
+<span>{crumbname_{crumb1_view}}</span>
+
+#crumbs3
+<a href="{crumb0_hash}" class="crumb first">{crumbname_{crumb0_view}}</a> >
+<a href="{crumb1_hash}" class="crumb">{crumbname_{crumb1_view}}</a> >
+<span>{crumbname_{crumb2_view}}</span>
+
+#crumbs4
+<a href="{crumb0_hash}" class="crumb first">{crumbname_{crumb0_view}}</a> >
+<a href="{crumb1_hash}" class="crumb">{crumbname_{crumb1_view}}</a> >
+<a href="{crumb2_hash}" class="crumb">{crumbname_{crumb2_view}}</a> >
+<span>{crumbname_{crumb3_view}}</span>
+
+#spinner
+<div class="spinner"></div>
+
+#spinner_in_table_row
+<tr><td colspan="100">{spinner}</td></tr>
+
+#beige
+
+#beige_instance_display
+{beige_instance_text}{beige_instance_status} 
+
+#beige_instance
+<div class="beigealert_wrap dpreview">
+	<div class="beigealert"><img src="{flava}alert_icon_top.png" alt="{alert_icon_alt_text}" width="15" height="15"/> {beige_instance_display}</div>
+</div>
+
+#beige_instance_text
+This test instance of d-portal number <span class="beige_key">{beige_instance_key}</span> does not include any public IATI data.
+<span class="beige_bold">Data in this site is test data and not for circulation or publication. This site will expire in ten days.</span>
+
+#beige_instance_status
+<b>PLEASE WAIT</b> {beige_instance_status_code}
+
+#beige_importing
+<div class="beigealert_wrap">
+	<div class="beigealert"><img src="{flava}alert_icon_top.png" alt="{alert_icon_alt_text}" width="15" height="15"> {beige_alert2_text} </div>
+</div>
+
+#beige0
+<div class="beigealert_wrap">
+	<div class="beigealert"><img src="{flava}alert_icon_top.png" alt="{alert_icon_alt_text}" width="15" height="15"> {beige_alert_text} <a href="/html/feedback.html" class="beige" target="_blank" rel="noopener noreferrer">{beige_alert_here_text}</a>.</div>
+</div>
+
+#beige_delete
+<div class="beigealert_wrap delete">
+	<div class="beigealert">{beige_alert3_text}</div>
+</div>
+
+#status
+<span class="badge beta">BETA</span>
+
+#table_alert
+<div class="table_alert">{table_alert_text}</div>
+
+#portal_name
+{country_name}
+{publisher_name}
+
+#view_head
+<div class="portal">
+	<div class="main_wrap">
+		<div id="background_image"></div>
+		<div class="overlay">
+	
+#view_tail
+		</div>
+	</div>
+	<div class="footer_wrap">
+		<div class="footer">
+			{large_footer}
+		</div>
+	</div>
+</div>
+
+#utter
+<div onclick="$('#utter_wrap').toggle();" class="utter_link">&#128172;</div>
+<div id="utter_wrap">
+	<div onclick="$('#utter_wrap').toggle();" class="utter_link">&#10005;</div>
+	<div class="utter_text">
+		Hello! Do you have a question about d-portal? Please send us your comments below.
+		<span>This creates an issue on <a href="https://github.com/devinit/D-Portal/issues">the feedback forum</a>.</span>
+	</div>
+	<div class="utter_box_wrap">
+		<div class="utter_box" id="insert_utter_code">
+			<script>
+				$(function(){
+					let randomid=(new Date)+'';
+					let s = document.createElement("script");
+						s.type  = "text/javascript";
+						s.setAttribute("src","https://utteranc.es/client.js")
+						s.setAttribute("repo","notshi/IATIswitcheroo")
+						s.setAttribute("issue-term","Comment on "+randomid)
+						s.setAttribute("label","question")
+						s.setAttribute("theme","github-light")
+						s.setAttribute("crossorigin","anonymous")
+						s.setAttribute("async","1")
+					let e=document.getElementById("insert_utter_code")
+					if(!e.getAttribute("donestuff"))
+					{
+						e.setAttribute("donestuff","1")
+						e.appendChild(s)
+					}
+				})
+			</script>
+		</div>
+		<div class="utter_block"></div>
+	</div>
+</div>
+
+
+#large_footer
+<div class="footer_link">
+	{large_footer_left}
+</div><div class="footer_link list">
+	{large_footer_right}
+</div>
+<div class="footer_link top"><a onclick="$('html,body').animate({ scrollTop:0},'slow');return false;">{footer_top_text}</a></div>
+
+#large_footer_left
+<div class="footer_motto">{footer6_text} {footer7_text}</div>
+<p>{footer8_text}</p>
+<p class="beta">{footer9_text}</p>
+<p>{footer21_text} <b><a href="https://www.iatiregistry.org/publisher/{publisher_slug}">{footer22_text}</a></b></p>
+<p>{footer10_text} <b><a href="mailto:support@iatistandard.org?subject=Regarding%20d-portal.org">{footer11_text}</a></b></p>
+
+#large_footer_right
+<div class="footer_header">{footer12_text}</div>
+<ul>
+	<li><a href="/news/posts.html">{footer13_text}</a></li>
+	<li><a href="/ctrack.html?#view=dash">{footer14_text}</a></li>
+	<li><a href="/ctrack.html#view=generator">{footer15_text}</a></li>
+	<li><a href="{origin}/dquery">{footer23_text}</a></li>
+	<li><a href="https://xriss.github.io/D-Portal-Logs/">{footer20_text}</a></li>
+</ul>
+<div class="footer_header">{footer16_text}</div>
+<ul>
+	<li><a href="/faq.html">{footer17_text}</a></li>
+	<li><a href="/about.html">{footer_about_text}</a></li>
+	<li><a href="/about.html#sources">{footer18_text}</a></li>
+	<li><a href="https://github.com/devinit/D-Portal/issues">{footer19_text}</a></li>
+</ul>
+
+
+<!--	Footer for dpreview	-->
+#large_footer_dpreview
+<div class="footer_link footer_dpreview">
+	{large_footer_left_dpreview}
+</div><div class="footer_link list footer_dpreview">
+	{large_footer_right_dpreview}
+</div>
+<div class="footer_link top"><a onclick="$('html,body').animate({ scrollTop:0},'slow');return false;">{footer_top_text}</a></div>
+
+#large_footer_left_dpreview
+<div class="footer_motto">
+	<a href="http://d-preview.codeforiati.org/upload">d-preview</a> helps organisations understand the data they are publishing.
+</div>
+<p class="beta">For preview purposes only. Data will not be uploaded to the main live d-portal website.</p>
+<p>This is a community hosted service and all preview instances will auto-delete after ten days.</p>
+<p>Project page, issues and feedback on <b><a href="https://github.com/notshi/d-preview">Github</a>.</b></p>
+<p>
+	
+</p>
+
+#large_footer_right_dpreview
+<div class="footer_header">Latest news</div>
+<ul>
+	<li><a href="https://medium.com/opendatacoop/announcing-d-preview-helping-organisations-check-their-iati-data-before-publishing-669b24ae20d">Announcing d-preview: helping organisations check their IATI data before publishing</a></li>
+</ul>
+<p><a href="http://d-preview.codeforiati.org/upload" class="search_refine">Create a new preview</a></p>
+
+<!--	Above footer for dpreview	-->
+#where_is_the_data_from_dpreview
+<div class="description_splash">
+	<div class="footer_notes" style="background-color:transparent;">
+	</div>
+</div>
+
+
+#main_datainvestigators
+<div class="data_wrap">
+	<a href="mailto:support@iatistandard.org?subject=Regarding%20d-portal.org" class="data_invest">
+		{data_investigate_text}
+	</a>
+</div>
+
+
+#main_head
+<div class="default head">
+	{main_settings}
+	<table class="head">
+		<tr>
+			<td rowspan="3">
+				<a href="/" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}</a>
+			</td>
+			{main_head_tail_settings}
+			
+
+#main_head_search
+<div class="default head">
+	<table class="head">
+		<tr>
+			<td rowspan="3">
+				<a href="/" title="{mainback_tip_text}"><img src="{flava}dp_logo.60.png" alt="{dportal_logo_alt_text}" width="150" height="60"/>{status}</a>
+			</td>
+			{main_head_tail_settings_search}
+
+
+#main_head_tail_settings_search
+			<td class="settings_toggle">
+				<div class="settings_link_search">
+					<span>Search IATI data on development and humanitarian activities easily</span>
+				</div>
+			</td>
+			<td class="settings_toggle">
+				<div class="settings_link_search">
+					<span><a href="/faq.html">FAQ</a></span>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="crumb_wrap">{crumbs}</div>
+</div>	
+
+
+#main_head_tail_settings_search_dpreview
+			<td class="settings_toggle">
+				<div class="settings_link_search">
+					<span>Search IATI data on development and humanitarian activities easily</span>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<div class="crumb_wrap">{crumbs}</div>
+</div>	
+
+		
+#main_settings
+<div id="settings" style="display:none;">
+<table class="head">
+	<tr>
+		<td class="options">
+			<form class="settings_currency" action="">
+				<span class="settings_info">{settings_currency_text} </span>
+				<select aria-label="Select a currency from this dropdown" id="usd_select" name="usd" class="">{all_usd_options}</select>
+			</form>
+		</td>
+		<td class="options">
+			<form action="">
+			<span class="settings_info">{settings_language_text} </span>
+			<select aria-label="Select a language from this dropdown" id="tongue_select" name="tongue" class="">
+				<option value="eng" title="{tongue_eng_tip_text}">{tongue_eng_text}</option>
+				<option value="fra" title="{tongue_fra_tip_text}">{tongue_fra_text}</option>
+				<option value="spa" title="{tongue_spa_tip_text}">{tongue_spa_text}</option>
+				<option value="jpn" title="{tongue_jpn_tip_text}">{tongue_jpn_text}</option>
+				<option value="cmn" title="{tongue_cmn_tip_text}">{tongue_cmn_text}</option>
+				<option value="hin" title="{tongue_hin_tip_text}">{tongue_hin_text}</option>
+			</select>
+			</form>
+		</td>
+	</tr>
+	<tr>
+		<td class="options">
+			<form class="newyear" action="">
+				<span class="settings_info">{settings_year_text} </span>
+				<select aria-label="Select a starting year from this dropdown" id="newyear_select" name="newyear" class="">{all_date_options}</select>
+			</form>
+		</td>
+		<td class="options">
+			<form action="">
+			<span class="settings_info">{settings_themes_text} </span>
+			<select aria-label="Select a colour theme from this dropdown" id="flava_select" name="flava" class="">
+				<option value="flava=original">{flava_choose_text}</option> 
+				<option value="flava=original">{flava_original_text}</option> 
+				<option value="flava=high">{flava_high_visibility_text}</option>
+			</select>
+			</form>
+		</td>
+	</tr>
+</table>
+</div>
+	
+
+#main_head_tail_settings
+			<td class="settings_toggle">
+				<a href="/faq.html" class="settings_faq">FAQ</a><a href="#" onclick="event.preventDefault();$('#settings').toggle();" class="settings_link">
+					<span>{change_settings_text}</span><img src="{flava}settings.png" alt="A cog wheel icon indicate settings and options for the website" width="35" height="35"/>
+				</a>
+			</td>
+		</tr>
+	</table>
+	<div class="crumb_wrap">{crumbs}</div>
+</div>
+
+<script>
+	$(function(){
+		$('#tongue_select').children().each(function(i,it){
+			if("{tongue}"==$(it).val())
+			{
+				$(it).attr("selected",1);
+			}
+		});
+		$('#tongue_select').bind('change', function ()
+		{
+			var url = "{mark_no_tongue}&tongue="+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+	$(function(){
+		$('#flava_select').children().each(function(i,it){
+			if("{flava_name}"==$(it).val())
+			{
+				$(it).attr("selected",1);
+			}
+		});
+		$('#flava_select').bind('change', function ()
+		{
+			var url = "{mark_no_flava}&"+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+	$(function(){
+		$('#usd_select').children().each(function(i,it){
+			if("{USD}"==$(it).val())
+			{
+				$(it).attr("selected",1);
+			}
+		});
+		$('#usd_select').bind('change', function ()
+		{
+			var url = "{mark_no_usd}&usd="+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+	$(function(){
+		$('#newyear_select').children().each(function(i,it){
+			if("{newyear}"==$(it).val())
+			{
+				$(it).attr("selected",1);
+			}
+		});
+		$('#newyear_select').bind('change', function ()
+		{
+			var url = "{mark_no_newyear}&newyear="+$(this).val()+"{hash}";
+			window.location = url; // redirect
+			return false;
+		});
+	});
+</script>
+
+
+#main_head_tail_settings_dpreview
+			<td class="settings_toggle"></td>
+		</tr>
+	</table>
+	<div class="crumb_wrap">{crumbs}</div>
+</div>
+
+
+#main_min
+{main_countrymin}
+{main_pubmin}
+{main_searchmin}
+
+#main_countrymin
+<div class="default min">
+	<table class="country min">
+		<tr>
+			<td class="name">{portal_name}</td>
+			<td class="flag"><img src="{country_flag}" alt="{portal_name} {flag_alt_text}"/></td>
+		</tr>
+	</table>
+</div>
+
+#main_pubmin
+<div class="default min">
+	<table class="country min">
+		<tr>
+			<td class="name publisher">{portal_name}</td>
+		</tr>
+	</table>
+</div>
+
+#search_display_keyword trim=ends
+<div class="search_query">
+	<div class="status_code"><a href="{search_text}">{search_text}</a></div><span>{search_keyword_txt}</span>
+</div>
+
+#search_display_aids trim=ends
+<div class="search_query fullwidth">
+	<div class="status_code"><a href="{search_text}">{search_text}</a></div><span>{search_external_txt}</span>
+</div>
+
+<div class="search_method_text">
+	The COVID-19 search follows the <a href="https://docs.google.com/document/d/11XTnrPw8K76JvBhFfnqo-1Z9BmgqzWv2bEz9QoDrw2k">IATI Publishing Guidance</a>. It currently searches the database for COVID-19 in title, activity and transaction description fields and looks for the relevant codes in the humanitarian-scope and tag element.
+</div>
+
+#search_display_country trim=ends
+<div class="search_query">
+	<div class="recipient">{search_text}</div><span><img src="{flava}search_country.png" alt="Recipient icon" width="13" height="13"/>{search_recipient_txt}</span>
+</div>
+
+#search_display_sector trim=ends
+<div class="search_query">
+	<div class="sect_cat">{search_text}</div><span><img src="{flava}search_category.png" alt="Sector icon" width="13" height="13"/>{search_sector_txt}</span>
+</div>
+
+#search_display_status trim=ends
+<div class="search_query">
+	<div class="status_code">{search_text}</div><span><img src="{flava}search_status.png" alt="Status icon" width="13" height="13"/>{search_status_txt}</span>
+</div>
+
+#search_display_funder trim=ends
+<div class="search_query">
+	<div class="donor">{search_text}</div><span><img src="{flava}search_funder.png" alt="Funder icon" width="13" height="13"/>{search_donor_txt}</span>
+</div>
+
+#search_display_publisher trim=ends
+<div class="search_query">
+	<div class="publisher">{search_text}</div><span><img src="{flava}search_publisher.png" alt="Publisher icon" width="13" height="13"/>{search_publisher_txt}</span>
+</div>
+
+#search_display_sector_group trim=ends
+<div class="search_query">
+	<div class="sector">{search_text}</div><span><img src="{flava}search_sector.png" alt="Sector Group icon" width="13" height="13"/>{search_sectorgroup_txt}</span>
+</div>
+
+#search_display_year_min trim=ends
+<div class="search_query">
+	<div class="year">{search_text}</div><span><img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt} min</span>
+</div>
+
+#search_display_year_max trim=ends
+<div class="search_query">
+	<div class="year">{search_text}</div><span><img src="{flava}search_year.png" alt="Year icon" width="13" height="13"/>{search_year_txt} max</span>
+</div>
+
+#search_display_search trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span>{search_text_txt}</span>
+</div>
+
+#search_display_collaboration_type trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_collaboration_type_txt}</span>
+</div>
+
+#search_display_aid_type trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_aid_type_txt}</span>
+</div>
+
+#search_display_finance_type trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_finance_type_txt}</span>
+</div>
+
+#search_display_flow_type trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_flow_type_txt}</span>
+</div>
+
+#search_display_tied_status trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_tied_status_txt}</span>
+</div>
+
+#search_display_document_category trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_document_category_txt}</span>
+</div>
+
+#search_display_humanitarian_activity trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_humanitarian_activity_txt}</span>
+</div>
+
+#search_display_humanitarian_scope trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_humanitarian_scope_txt}</span>
+</div>
+
+#search_display_participating trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_participating_txt}</span>
+</div>
+
+#search_display_policy trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_policy_txt}</span>
+</div>
+
+#search_display_related_activity trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_related_activity_txt}</span>
+</div>
+
+#search_display_result_type trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_result_type_txt}</span>
+</div>
+
+#search_display_tag_vocab trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_tag_vocab_txt}</span>
+</div>
+
+#search_display_reporting_organisation_type trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_reporting_organisation_type_txt}</span>
+</div>
+
+#search_display_region trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_region_txt}</span>
+</div>
+
+#search_display_sector_vocabulary trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_sector_vocabulary_txt}</span>
+</div>
+
+#search_display_hierarchy trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_hierarchy_txt}</span>
+</div>
+
+#search_display_commitment_min trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_commitment_min_txt}</span>
+</div>
+
+#search_display_commitment_max trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_commitment_max_txt}</span>
+</div>
+
+#search_display_transaction_type trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_transaction_type_txt}</span>
+</div>
+
+#search_display_budget_type trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_budget_type_txt}</span>
+</div>
+
+#search_display_planned_disbursement_type trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_planned_disbursement_type_txt}</span>
+</div>
+
+#search_display_activity_scope trim=ends
+<div class="search_query">
+	<div class="text">{search_text}</div><span><span class="filter_icon">&#10096;&#10097;</span>{search_activity_scope_txt}</span>
+</div>
+
+#main_searchmin
+<div class="default min">
+	{more_search_intro}
+	{glossary_button}
+	<div class="search_cont">
+		<div class="search search_title">{search_view_txt}</div><a href="{search_url}" class="search_refine">{search_refine_txt}</a>
+		<div class="search search_main" id="main_searchmin_all"></div>
+	</div>
+</div>
+	
+#main_max
+{main_country}
+{main_publisher}
+{main_search}
+
+#main_country
+<div class="default">
+	<table class="country">
+		<tr>
+			<td class="name">{portal_name}</td>
+			<td class="flag"><img src="{country_flag}" alt="{portal_name} {flag_alt_text}"/></td>
+		</tr>
+	</table>
+</div>
+
+#main_publisher
+<div class="default">
+	<table class="country">
+		<tr>
+			<td class="name publisher">{portal_name}</td>
+		</tr>
+	</table>
+</div>
+
+#main_search
+<div class="default min">
+	{more_search_intro}
+	{glossary_button}
+	<div class="search_cont">
+		<div class="search search_title">{search_view_txt}</div><a href="{search_url}" class="search_refine">{search_refine_txt}</a>
+		<div class="search search_main" id="main_searchmin_all"></div>
+	</div>
+</div>
+
+
+<!-- GLOSSARY BUTTON -->
+#glossary_button
+<div class="search_help"><span onclick="$('#more_search_intro').slideToggle('fast');">GLOSSARY</span></div>
+
+<!-- GLOSSARY	-->
+#more_search_intro
+<div id="more_search_intro" class="search_glossary_wrap" style="display:none;">
+	<div class="search_help"><span onclick="$('#more_search_intro').toggle();">CLOSE X</span></div>
+	<div class="search_glossary">
+		<div class="filter_text">GLOSSARY</div>
+		<table class="head filter_table">
+			<thead>
+				<tr>
+					<th class="gloss_name">Quick search</th>
+					<th>Quick buttons for specific searches.
+					<div>
+						The COVID-19 search follows the <a href="https://docs.google.com/document/d/11XTnrPw8K76JvBhFfnqo-1Z9BmgqzWv2bEz9QoDrw2k">IATI Publishing Guidance</a>. It currently searches the database for COVID-19 in title, activity and transaction description fields and looks for the relevant codes in the humanitarian-scope and tag element.
+					</div>
+					</th>
+				</tr>
+			</thead>
+			<tr>
+				<td>Text search</td>
+				<td>Search Title and Description fields within all published IATI activities.</td>
+			</tr>
+			<tr>
+				<td>ABC - 123</td>
+				<td>Sort dropdowns by <i>alphabetical</i> order <span class="underline"><b>or</b></span> by relevant <i>IATI/CRS code</i> (e.g. by CRS sector numbers).</td>
+			</tr>
+			<tr>
+				<td>{search_status_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/ActivityStatus/#codes" target="blank" rel="noopener noreferrer">IATI code</a> defining the current status of the activity.</td>
+			</tr>
+			<tr>
+				<td>{search_collaboration_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/CollaborationType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> defining the type of collaboration involved in the activity’s disbursements.</td>
+			</tr>
+			<tr>
+				<td>{search_aid_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/AidType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> specifying the type of aid being supplied.</td>
+			</tr>
+			<tr>
+				<td>{search_finance_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/FinanceType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the default DAC/CRS transaction classification used to distinguish financial instruments like grants or loans.</td>
+			</tr>
+			<tr>
+				<td>{search_flow_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/FlowType/#codes" target="blank">IATI code</a> defining whether the activity is funded by Official Development Assistance (ODA), Other Official Flows (OOF), etc.</td>
+			</tr>
+			<tr>
+				<td>{search_tied_status_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/TiedStatus/#codes" target="blank">IATI code</a> interpreting the usage of Columns 36-38 of the CRS++ reporting format.</td>
+			</tr>
+			<tr>
+				<td>{search_document_category_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/DocumentCategory/#codes" target="blank">IATI code</a> defining the category of the document.</td>
+			</tr>
+			<tr>
+				<td>{search_humanitarian_activity_txt}</td>
+				<td>A <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/" target="blank" rel="noopener noreferrer">process flag</a> to indicate that this activity and/or transaction relates entirely or partially to humanitarian aid.</td>
+			</tr>
+			<tr>
+				<td>{search_humanitarian_scope_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/HumanitarianScopeVocabulary/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for a recognised vocabulary of terms classifying the event or action.</td>
+			</tr>
+			<tr>
+				<td>{search_participating_txt}</td>	
+				<td>Organisations from <a href="https://iatiregistry.org/publisher" target="blank" rel="noopener noreferrer">IATI Registry</a> - not an extensive list and includes only the existing list of IATI publishers.</td>
+			</tr>
+			<tr>
+				<td>{search_policy_txt}</td>
+				<td>Uses both <a href="http://reference.iatistandard.org/203/codelists/PolicyMarker/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the vocabulary to be used to define a policy or theme addressed by the activity and <a href="http://reference.iatistandard.org/203/codelists/PolicySignificance/">OECD DAC CRS code</a> indicating the significance of the policy marker for this activity.</td>
+			</tr>
+			<tr>
+				<td>{search_publisher_txt}</td>
+				<td>Publishers are from the <a href="https://iatiregistry.org/publisher" target="blank" rel="noopener noreferrer">IATI Registry</a>. This <a href="http://reference.iatistandard.org/203/activity-standard/iati-activities/iati-activity/reporting-org/" target="blank" rel="noopener noreferrer">IATI element</a> is a list of reporting organisations issuing the report.</td>
+			</tr>
+			<tr>
+				<td>{search_recipient_txt}</td>
+				<td>Countries reported by publishers are using <a href="https://en.wikipedia.org/wiki/ISO_3166-2" target="blank" rel="noopener noreferrer">ISO3166 Alpha-2</a>.</td>	
+			</tr>
+			<tr>
+				<td>{search_related_activity_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/RelatedActivityType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the type of relationship another separately reported IATI activity is related to this one.</td>
+			</tr>
+			<tr>
+				<td>{search_result_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/ResultType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the type of result being reported.</td>
+			</tr>
+			<tr>
+				<td>{search_sector_txt}</td>
+				<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/Sector/#codes" target="blank" rel="noopener noreferrer">OECD DAC CRS 5-digit purpose code</a>.</td>
+			</tr>
+			<tr>
+				<td>{search_sectorgroup_txt}</td>
+				<td>The sector reported corresponds to an <a href="http://reference.iatistandard.org/203/codelists/SectorCategory/#codes" target="blank" rel="noopener noreferrer">OECD DAC CRS 3-digit purpose code</a>.</td>		
+			</tr>
+			<tr>
+				<td>{search_tag_vocab_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/TagVocabulary/#codes" target="blank" rel="noopener noreferrer">IATI code</a> for the vocabulary or taxonomy used for tag classifications.</td>
+			</tr>
+			<tr>
+				<td>{search_commitment_txt}</td>
+				<td>Select the minimum and/or maximum sum of all <a href="http://reference.iatistandard.org/203/codelists/TransactionType/#codes" target="blank" rel="noopener noreferrer">Outgoing Commitment</a> type transactions.</td>
+			</tr>
+			<tr>
+				<td>{search_transaction_type_txt}</td>
+				<td>An <a href="http://reference.iatistandard.org/203/codelists/TransactionType/#codes" target="blank" rel="noopener noreferrer">IATI code</a> defining the type of transaction.</td>
+			</tr>
+			<tr>
+				<td>{search_year_txt}</td>
+				<td>Select the starting and/or ending year as the range for activities. This looks at <a href="https://iatistandard.org/en/iati-standard/203/codelists/activitydatetype/" target="blank" rel="noopener noreferrer">actual and planned dates</a> for activities that take place during the min and max year; ie. activities that started before the end of the max year and ended after the start of the min year to get an overlap of the ranges.</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+
+#back_portal
+<div class="center_wrap">
+	<a href="#view=main" class="button">{back_text}</a>
+</div>
+
+#alerts
+{alert_no_iati}
+
+#alert_no_iati
+<tr>
+	<td colspan="10" class="alert_no_iati" title="{alert_no_iati_tip_text}">{alert_no_iati_text}</td>
+</tr>
+
+#alerts_quality
+{alert_no_data1}
+{alert_no_data2}
+{alert_no_data3}
+{alert_no_data4}
+{alert_no_data5}
+
+#alert_no_data1
+<tr onclick="return ctrack.url('faq.html#gen13');">
+	<td colspan="10" class="alert_no_iati data">{alert_nodata1_text}</td>
+</tr>
+
+#alert_no_data2
+<tr>
+	<td colspan="10" class="alert_no_iati data">{alert_nodata2_text}</td>
+</tr>
+
+#alert_no_data3
+<tr>
+	<td colspan="10" class="alert_no_iati data">{alert_nodata3_text}</td>
+</tr>
+
+#alert_no_data4
+<tr>
+	<td colspan="10" class="alert_no_iati data">{alert_nodata4_text}</td>
+</tr>
+
+#alert_no_data5
+<tr>
+	<td colspan="10" class="alert_no_iati data">{alert_nodata5_text}</td>
+</tr>
+
+
+#css
+ #background_image	{background-image:url('{background_image}');} /* Needed for displaying background images per different country */

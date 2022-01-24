@@ -1,0 +1,2174 @@
+
+#^iati-activity
+{_it.@version<2.0&&_it:/version1-banner||}
+<div class="activity">
+	{_it.@humanitarian==1&&humanitarian||}
+	<div class="header">
+		PROJECT TITLE
+		<div class="version">
+			<a title="Version of the IATI Standard" href="{_it.@version-url||}" target="_blank"><span>VERSION</span> {_it.@version||}</a>
+		</div>
+	</div>
+	<div class="wrap_title">
+		{_it./title/narrative&&_it:/wrap-title-narrative||}
+	</div>
+<!--	REPORTING ORG	-->
+	<div class="wrap_reporting_org">
+		<div class="text">Reported by</div><div class="reporting_org"><a href="{origin}/ctrack.html?publisher={_it./reporting-org@ref}" target="blank">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span>{_it./reporting-org@secondary-reporter==1&&secondary_reporter||}</div>
+	</div>
+<!--	DEFAULT MODALITIES	-->	
+	<div class="wrap_default">
+		<table class="modals">
+			<tr>
+				<th class="mod_1">ACTIVITY SCOPE</td>
+				<th class="mod_2">COLLABORATION TYPE</td>
+				<th class="mod_3">AID TYPE</td>
+				<th class="mod_4">FINANCE TYPE</td>
+				<th class="mod_5">FLOW TYPE</td>
+				<th class="mod_6">TIED STATUS</td>
+				<th class="mod_7">HIERARCHY</td>
+			</tr>
+			<tr>
+				<td class="mod_1" title="{_it./activity-scope@code-description||}">{_it./activity-scope@code&&_it:/modal-wrap-activity-scope||}</td>
+				<td class="mod_2" title="{_it./collaboration-type@code-description||/empty-description}">{_it./collaboration-type@code&&_it:/modal-wrap-collaboration-type||}</td>
+				<td class="mod_3">{_it./default-aid-type&&_it:/modal-wrap-aid-type||}</td>
+				<td class="mod_4" title="{_it./default-finance-type@code-description||}">{_it./default-finance-type@code&&_it:/modal-wrap-finance-type||}</td>
+				<td class="mod_5" title="{_it./default-flow-type@code-description||}">{_it./default-flow-type@code&&_it:/modal-wrap-flow-type||}</td>
+				<td class="mod_6" title="{_it./default-tied-status@code-description||}">{_it./default-tied-status@code-name||}</td>
+				<td class="mod_7" title="The hierarchical level within the reporting organisation’s subdivision of its units of aid.">{_it.@hierarchy||}</td>
+			</tr>
+		</table>
+	</div>
+<!--	IATI IDENTIFIER AND SOURCES	-->
+	<div class="wrap_iati_identifier">
+		<div class="text">IATI IDENTIFIER <a href="{origin}/savi/?aid={_it./iati-identifier}" target="blank">{_it./iati-identifier}</a></div>
+		<div class="data_source">
+			<a class="xml" href="{origin}/q.xml?aid={_it./iati-identifier}" target="_blank"><span>view</span> xml</a><a class="json" href="{origin}/q.json?aid={_it./iati-identifier}" target="_blank"><span>view</span> json</a><a class="dlogs" href="{origin}/ctrack.html#view=dash_sluglog&slug={_it.@dataset}" target="_blank"><span>view dataset</span> logs</a><a class="slug" href="http://iatiregistry.org/dataset/{_it.@dataset}" target="_blank"><span>view iati registry</span> dataset</a><a class="csv" href="{origin}/q.csv?aid={_it./iati-identifier}" target="_blank"><span>download</span> csv</a>
+		</div>
+	</div>
+{_it./document-link&&_it:/wrap-document-link||}
+<!--	ACTIVITY DATE	-->	
+	<div class="wrap_activity_date">
+		{_it./activity-date-1&&_it:/wrap-activity-date-1||}
+		{_it./activity-date-3&&_it:/wrap-activity-date-3||}
+		{_it./activity-date-2&&_it:/wrap-activity-date-2||}		
+		{_it./activity-date-4&&_it:/wrap-activity-date-4||}
+	</div>
+	<div class="activity_date_bar">
+		<div class="activity_date_overlay" style="width:calc({_it./activity-date-percent} * 9.60px);" title="{_it./activity-date-percent}% completed"></div>
+	</div>
+{_it./activity-status@code&&_it:/wrap-activity-status||}
+{_it./participating-org&&_it:/wrap-participating-org||}
+{_it./description&&_it:/wrap-description||}
+{_it./humanitarian-scope&&_it:/wrap-humanitarian-scope||}
+{_it./tag&&_it:/wrap-tag||}
+{_it./policy-marker&&_it:/wrap-policy-marker||}
+{_it./recipient-country&&_it:/wrap-recipient-country||}
+{_it./recipient-region&&_it:/wrap-recipient-region||}
+{_it./location&&_it:/wrap-location||}
+{_it./country-budget-items/budget-item&&_it:/wrap-country-budget-items||}
+{_it./sector&&_it:/wrap-sector||}
+{_it./capital-spend@percentage&&_it:/wrap-capital-spend||}
+{_it.@budget-not-provided&&_it:/budget-not-provided||}
+{_it./transaction&&_it:/wrap-all-chart||}
+{_it./budget&&_it:/wrap-budget||}
+{_it./planned-disbursement&&_it:/wrap-planned-disbursement||}
+{_it./transaction&&_it:/wrap-transaction||}
+{_it./result&&_it:/wrap-result||}
+{_it./contact-info&&_it:/wrap-contact-info||}
+{_it./related-activity&&_it:/wrap-related-activity||}
+{_it./other-identifier&&_it:/wrap-other-identifier||}
+{_it./conditions@attached&&_it:/wrap-conditions||}
+{_it./legacy-data&&_it:/wrap-legacy-data||}
+{_it./crs-add/other-flags||_it./crs-add/channel-code&&_it:/wrap-crs-add||}
+{_it./crs-add/loan-status@year||_it./crs-add/loan-status/interest-arrears||_it./crs-add/loan-status/interest-received||_it./crs-add/loan-status/principal-arrears||_it./crs-add/loan-status/principal-outstanding||_it./crs-add/loan-status/interest-arrears&&_it:/wrap-loan-status||}
+{_it./fss&&_it:/wrap-fss||}	<!--	0% published, need data to display	-->
+
+</div>
+
+#^new_graph
+<div class="wrap_recipient_country" style="padding:0 0 20px 0; border-radius:0 0 6px 6px; margin:0 auto; margin-bottom:40px;">
+	<div style="background-color:#008FFF; color:#FFF; font-size:32px; text-align:center; margin-bottom:5px;">
+		<div style="padding:20px 40px;">Where does the money come from?</div>
+		<div style="width:960px; background-color:#FFF;">
+			<div style="border-top:20px solid #008FFF; margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent;"></div>
+		</div>
+	</div>
+	<div class="sector">
+		<div class="wrap_code">
+			<span class="sector_code_text" style="max-width:initial; margin-bottom:3px; font-size:16px;">Coalition for Epidemic Preparedness Innovations</span>
+			<div><span class="sector_code">International NGO</span><span style="color:#666; margin-left:10px; font-weight:bold; font-size:16px;">176,220,000 USD</span></div>
+		</div><div class="wrap_bar">
+			<span class="sector_bar" style="width:calc(92 * 3.35px);">
+				<span class="sector_overlay" style="width:calc(92 * 3.35px); background:hsl(200,92%,50%);"></span>
+			</span><span class="sector_value">92</span>
+		</div>
+	</div>
+	<div class="sector">
+		<div class="wrap_code">
+			<span class="sector_code_text" style="max-width:initial; margin-bottom:3px; font-size:16px;">United Nations Central Emergency Response Fund (CERF)</span>
+			<div><span class="sector_code">Multilateral</span><span style="color:#666; margin-left:10px; font-weight:bold; font-size:16px;">15,000,000 USD</span></div>
+		</div><div class="wrap_bar">
+			<span class="sector_bar" style="width:calc(8 * 3.35px);">
+				<span class="sector_overlay" style="width:calc(8 * 3.35px); background:hsl(200,8%,50%);"></span>
+			</span><span class="sector_value">8</span>
+		</div>
+	</div>
+	<div class="sector">
+		<div class="wrap_code">
+			<span class="sector_code_text" style="max-width:initial; margin-bottom:3px; font-size:16px;">United Nations Industrial Development Organization (UNIDO)</span>
+			<div><span class="sector_code">International NGO</span><span style="color:#666; margin-left:10px; font-weight:bold; font-size:16px;">892,175 USD</span></div>
+		</div><div class="wrap_bar">
+			<span class="sector_bar" style="width:calc(0 * 3.35px);">
+				<span class="sector_overlay" style="width:calc(0 * 3.35px); background:hsl(200,0%,50%);"></span>
+			</span><span class="sector_value">0</span>
+		</div>
+	</div>
+	<div class="sector">
+		<div class="wrap_code">
+			<span class="sector_code_text" style="max-width:initial; margin-bottom:3px; font-size:16px;">United Nations Office for Project Services (UNOPS)</span>
+			<div><span class="sector_code">International NGO</span><span style="color:#666; margin-left:10px; font-weight:bold; font-size:16px;">2,544 USD</span></div>
+		</div><div class="wrap_bar">
+			<span class="sector_bar" style="width:calc(0 * 3.35px);">
+				<span class="sector_overlay" style="width:calc(0 * 3.35px); background:hsl(200,0%,50%);"></span>
+			</span><span class="sector_value">0</span>
+		</div>
+	</div>
+	<div style="text-align:right; margin-top:10px; margin-right:20px; font-size:12px; color:#666;">*All years in total, top 5.</div>
+</div>
+
+<div class="wrap_recipient_country" style="padding:0 0 20px 0; border-radius:0 0 6px 6px; margin:0 auto; margin-bottom:40px;">
+	<div style="background-color:#CC8030; color:#FFF; font-size:32px; text-align:center; margin-bottom:5px;">
+		<div style="padding:20px 40px;">Funding went to 1 countries</div>
+		<div style="width:960px; background-color:#FFF;">
+			<div style="border-top:20px solid #CC8030; margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent;"></div>
+		</div>
+	</div>
+	<div class="sector">
+		<div class="wrap_code">
+			<span class="sector_code_text" style="max-width:initial; margin-bottom:3px; font-size:16px;">China</span><span class="sector_code">CN</span>
+			<div><span style="color:#666; margin-left:10px; font-weight:bold; font-size:16px;">894,179,000 USD</span></div>
+		</div><div class="wrap_bar">
+			<span class="sector_bar" style="width:calc(100 * 3.35px);">
+				<span class="sector_overlay" style="width:calc(100 * 3.35px); background:hsl(31,100%,66%);"></span>
+			</span><span class="sector_value">100</span>
+		</div>
+	</div>
+	<div style="text-align:right; margin-top:10px; margin-right:20px; font-size:12px; color:#666;">*All years in total.</div>
+</div>
+
+<div class="wrap_recipient_country" style="padding:0 0 20px 0; border-radius:0 0 6px 6px; margin:0 auto; margin-bottom:40px;">
+	<div style="background-color:#01A664; color:#FFF; font-size:32px; text-align:center; margin-bottom:5px;">
+		<div style="padding:20px 40px;">Where does the money go?</div>
+		<div style="width:960px; background-color:#FFF;">
+			<div style="border-top:20px solid #01A664; margin:0 auto; width:0; height:0; border-left:20px solid transparent; border-right:20px solid transparent;"></div>
+		</div>
+	</div>
+	<div class="sector">
+		<div class="wrap_code">
+			<span class="sector_code_text" style="max-width:initial; margin-bottom:3px; font-size:16px;">Basic Health</span><span class="sector_code">122</span>
+			<div><span style="color:#666; margin-left:10px; font-weight:bold; font-size:16px;">176,220,000 USD</span></div>
+		</div><div class="wrap_bar">
+			<span class="sector_bar" style="width:calc(92 * 3.35px);">
+				<span class="sector_overlay" style="width:calc(92 * 3.35px); background:hsl(160,100%,40%);"></span>
+			</span><span class="sector_value">92</span>
+		</div>
+	</div>
+	<div class="sector">
+		<div class="wrap_code">
+			<span class="sector_code_text" style="max-width:initial; margin-bottom:3px; font-size:16px;">Emergency Response</span><span class="sector_code">720</span>
+			<div><span style="color:#666; margin-left:10px; font-weight:bold; font-size:16px;">15,000,000 USD</span></div>
+		</div><div class="wrap_bar">
+			<span class="sector_bar" style="width:calc(8 * 3.35px);">
+				<span class="sector_overlay" style="width:calc(8 * 3.35px); background:hsl(160,8%,40%);"></span>
+			</span><span class="sector_value">8</span>
+		</div>
+	</div>
+	<div class="sector">
+		<div class="wrap_code">
+			<span class="sector_code_text" style="max-width:initial; margin-bottom:3px; font-size:16px;">Industry</span><span class="sector_code">321</span>
+			<div><span style="color:#666; margin-left:10px; font-weight:bold; font-size:16px;">892,175 USD</span></div>
+		</div><div class="wrap_bar">
+			<span class="sector_bar" style="width:calc(0 * 3.35px);">
+				<span class="sector_overlay" style="width:calc(0 * 3.35px); background:hsl(160,0%,40%);"></span>
+			</span><span class="sector_value">0</span>
+		</div>
+	</div>
+	<div style="text-align:right; margin-top:10px; margin-right:20px; font-size:12px; color:#666;">*All years in total. Sectors use 3-digit OECD DAC codes.</div>
+	
+	<div class="sector_list_wrap" style="margin-top:20px;">
+		<div class="header glossary" style="font-weight:bold; color:#444; padding-bottom:5px; margin-bottom:10px;">GLOSSARY</div>
+	</div>
+	<div class="sector_list_wrap">
+		<div class="sector_list"> 
+			<span>Basic Health</span><span class="sector_list_description"></span>
+		</div>
+		<div class="sector_list"> 
+			<span>Emergency Response</span><span class="sector_list_description">An emergency is a situation which results from man made crises and/or natural disasters.</span>
+		</div>
+		<div class="sector_list"> 
+			<span>Industry</span><span class="sector_list_description"></span>
+		</div>
+	</div>
+</div>
+
+
+#^/version1-banner
+<a href="https://iatistandard.org/en/news/notice-iati-standard-version-1-is-deprecated/" target="_blank" class="banner_v1">Data on this page has been published according to version 1 of the IATI Standard, which has now been deprecated. Learn more.</a>
+
+#^secondary_reporter
+<span class="type secondary">Secondary Reporter</span>
+
+#^/modal-wrap-activity-scope	<!--	MODAL - ACTIVITY SCOPE	-->
+{_it./activity-scope@code-name||} {_it./activity-scope@code&&_it:/activity-scope-code||}
+
+#^/activity-scope-code
+<span class="type">{_it./activity-scope@code||}</span>
+
+#^/modal-wrap-collaboration-type	<!--	MODAL - DEFAULT COLLABORATION TYPE	-->
+{_it./collaboration-type@code-name||} {_it./collaboration-type@code&&_it:/collaboration-type-code||}
+
+#^/collaboration-type-code
+<span class="type">{_it./collaboration-type@code||}</span>
+
+#^/modal-wrap-finance-type	<!--	MODAL - DEFAULT FINANCE TYPE	-->
+{_it./default-finance-type@code-name||} {_it./default-finance-type@code&&_it:/finance-type-code||}{_it./default-finance-type@code-withdrawn&&_it:/withdrawn||}
+
+#^/finance-type-code
+<span class="type">{_it./default-finance-type@code||}</span>
+
+#^/modal-wrap-flow-type	<!--	MODAL - DEFAULT FLOW TYPE	-->
+{_it./default-flow-type@code-name||} {_it./default-flow-type@code&&_it:/flow-type-code||}{_it./default-flow-type@code-withdrawn&&_it:/withdrawn||}
+
+#^/flow-type-code
+<span class="type">{_it./default-flow-type@code||}</span>
+
+#^/modal-wrap-aid-type	<!--	MODAL - DEFAULT AID TYPE	-->
+{_it./default-aid-type:/wrap-aid-type}
+
+#^/wrap-aid-type
+{_it.@vocabulary==1&&_it:/aid-type-all||}
+{_it.@vocabulary==2&&_it:/aid-type-all||}
+{_it.@vocabulary==3&&_it:/aid-type-other||}
+{_it.@vocabulary==4&&_it:/aid-type-other||}
+
+#^/aid-type-all
+<div title="{_it.@code-description||}">
+	{_it.@code-name||} <span class="type">{_it.@code||}</span>
+</div>
+#^/aid-type-other
+<div title="{_it.@code-description||}">
+	{_it.@vocabulary-name||} <span class="type">{_it.@code||}</span>
+</div>
+
+#^/wrap-crs-add	<!--	CRS WRAPPER	-->
+	<div class="wrap_crs_add">
+		<div class="header_section sticky collapsable">crs add</div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="crs_ele" data-sort="string" data-sort-multicolumn="0,1,2,3">ELEMENT</th>
+					<th class="crs_code" data-sort="string" data-sort-multicolumn="0,1,2,3">NAME</th>
+					<th class="crs_sig" data-sort="int" data-sort-multicolumn="0,1,2,3">SIGNIFICANCE</th>
+					<th class="crs_desc" data-sort="string" data-sort-multicolumn="0,1,2,3">DESCRIPTION</th>
+				</tr>
+			</thead>
+			{_it./crs-add/other-flags:/other-flags||}
+			{_it./crs-add/channel-code&&_it:/channel-code||}
+		</table>
+	</div>
+
+#^/other-flags	<!--	CRS	OTHER FLAGS ROWS	-->
+<tr class="row_count">
+	<td class="crs_ele" data-sort-value="string">Other Flags</td>
+	<td class="crs_code" data-sort-value="string">{_it.@code-name||}  <div><span class="ref">CODE</span> {_it.@code}</div></td>
+	<td class="crs_sig" data-sort-value="string">{_it.@significance||}</td>
+	<td class="crs_desc" data-sort-value="string">{_it.@code-description||}</td>
+</tr>
+
+#^/channel-code	<!--	CRS	OTHER FLAGS ROWS	-->
+<tr class="row_count">
+	<td class="crs_ele" data-sort-value="string">Channel Code</td>
+	<td class="crs_code" data-sort-value="string">{_it./crs-add/channel-code-name||} <div><span class="ref">CODE</span> {_it./crs-add/channel-code}</div></td>
+	<td class="crs_sig" data-sort-value="string">{_it.@significance||}</td>
+	<td class="crs_desc" data-sort-value="string">{_it./crs-add/channel-code-description||/empty-description}</td>
+</tr>
+
+#^/wrap-loan-status
+<div class="wrap_crs_add">
+		<div class="header_section sticky collapsable">crs add loan status</div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="crs_loan_year" data-sort="string" data-sort-multicolumn="0,1,2,3,4">YEAR</th>
+					<th class="crs_loan" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INTEREST ARREARS</th>
+					<th class="crs_loan" data-sort="string" data-sort-multicolumn="0,1,2,3,4">INTEREST RECEIVED</th>
+					<th class="crs_loan" data-sort="int" data-sort-multicolumn="0,1,2,3,4">PRINCIPAL ARREARS</th>
+					<th class="crs_loan" data-sort="string" data-sort-multicolumn="0,1,2,3,4">PRINCIPAL OUTSTANDING</th>
+				</tr>
+			</thead>
+			<tr class="row_count">
+				<td class="crs_loan_year">{_it./crs-add/loan-status@year||}</td>
+				<td class="crs_loan">{_it./crs-add/loan-status/interest-arrears||} <span>{_it./crs-add/loan-status@currency||}</span></td>
+				<td class="crs_loan">{_it./crs-add/loan-status/interest-received||} <span>{_it./crs-add/loan-status@currency||}</span></td>
+				<td class="crs_loan">{_it./crs-add/loan-status/principal-arrears||} <span>{_it./crs-add/loan-status@currency||}</span></td>
+				<td class="crs_loan">{_it./crs-add/loan-status/principal-outstanding||} <span>{_it./crs-add/loan-status@currency||}</span></td>
+			</tr>
+		</table>
+	</div>
+
+#^/wrap-conditions	<!--	CONDITIONS WRAPPER	-->
+	<div class="wrap_conditions">
+		<div class="header_section sticky collapsable">conditions<span class="count">( {_it./conditions/condition.length||no_length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="condition_narr" data-sort="string" data-sort-multicolumn="0,1,2">NARRATIVE</th>
+					<th class="condition_type" data-sort="int" data-sort-multicolumn="0,1,2">TYPE</th>
+					<th class="condition_desc" data-sort="string" data-sort-multicolumn="0,1,2">DESCRIPTION</th>
+				</tr>
+			</thead>
+			{_it./conditions/condition:/condition}
+		</table>
+	</div>
+
+#^/condition	<!--	CONDITIONS	ROWS	-->
+<tr class="row_count">
+	<td class="condition_narr" data-sort-value="{_it.@name}">{_it./narrative&&_it:/wrap-narrative||}</td>
+	<td class="condition_type" data-sort-value="{_it.@type-code}">{_it.@type-name||}</td>
+	<td class="condition_desc" data-sort-value="{_it.@type-description}">{_it.@type-description||}</td>
+</tr>
+
+#^/wrap-legacy-data	<!--	LEGACY DATA WRAPPER	-->
+	<div class="wrap_legacy_data">
+		<div class="header_section sticky collapsable">legacy data<span class="count">( {_it./legacy-data.length||no_length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="legacy_name" data-sort="string" data-sort-multicolumn="0,1,2">NAME</th>
+					<th class="legacy_value" data-sort="int" data-sort-multicolumn="0,1,2">VALUE</th>
+					<th class="legacy_iati" data-sort="string" data-sort-multicolumn="0,1,2">IATI EQUIVALENT</th>
+				</tr>
+			</thead>
+			{_it./legacy-data:/legacy-data}
+		</table>
+	</div>
+
+#^/legacy-data	<!--	LEGACY DATA	ROWS	-->
+<tr class="row_count">
+	<td class="legacy_name" data-sort-value="{_it.@name}">{_it.@name||}</td>
+	<td class="legacy_value" data-sort-value="{_it.@value}">{_it.@value||}</td>
+	<td class="legacy_iati" data-sort-value="{_it.@iati-equivalent}">{_it.@iati-equivalent||}</td>
+</tr>
+
+#^/wrap-other-identifier	<!--	OTHER IDENTIFIER WRAPPER	-->
+	<div class="wrap_other_identifier">
+		<div class="header_section sticky collapsable">other identifier<span class="count">( {_it./other-identifier.length||no_length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="other_ref" data-sort="string" data-sort-multicolumn="0,1,2,3">REFERENCE IDENTIFIER</th>
+					<th class="owner_ref" data-sort="string" data-sort-multicolumn="0,1,2,3">OWNER ORG IDENTIFIER</th>
+					<th class="other_type" data-sort="string" data-sort-multicolumn="0,1,2,3">TYPE</th>
+					<th class="other_desc" data-sort="string" data-sort-multicolumn="0,1,2,3">DESCRIPTION</th>			
+				</tr>
+			</thead>
+			{_it./other-identifier:/other-identifier}
+		</table>
+	</div>
+
+#^/other-identifier	<!--	OTHER IDENTIFIER ROWS	-->
+<tr class="row_count">
+	<td class="other_ref" data-sort-value="{_it.@ref}">{_it.@ref||}</td>
+	<td class="owner_ref" data-sort-value="{_it./owner-org@ref}">
+		{_it./owner-org@ref||}
+		{_it./owner-org/narrative&&_it:/owner-org||}
+	</td>
+	<td class="other_type" data-sort-value="{_it.@type}">
+		{_it.@type-name||}
+		{_it.@type&&_it:/other-type-wrap||}
+	</td>
+	<td class="other_desc" data-sort-value="{_it.@type}">{_it.@type-description||/empty-description}</td>
+</tr>
+
+#^/other-type-wrap
+<div><span class="ref">CODE</span> {_it.@type}</div>
+
+#^/owner-org
+<div>{_it./owner-org/narrative.0.text||}</div>
+
+#^/wrap-capital-spend	<!--	CAPITAL SPEND WRAPPER	-->
+	<div class="header_section collapsable">capital spend</div>
+	<div class="wrap_sector wrap_capital_spend">
+		<div class="sector">
+			<div class="wrap_code">
+				<span class="sector_code_text">The percentage of the total commitment that is for capital spending</span>
+			</div><div class="wrap_bar">
+				<span class="sector_bar" style="width:calc({_it./capital-spend@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it./capital-spend@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it./capital-spend@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it./capital-spend@percentage||/empty-percentage}</span>
+			</div>
+		</div>
+	</div>
+
+#^/wrap-country-budget-items	<!--	COUNTRY BUDGET ITEMS WRAPPER	-->
+	<div class="header_section collapsable">country budget items <span class="count">( {_it./country-budget-items/budget-item.length||no_length} )</span></div>
+	<div class="wrap_sector wrap_country_budget_items">
+		{_it./country-budget-items@vocabulary&&_it:/country-budget-items-vocab||}
+	</div>
+	
+<!--	COUNTRY BUDGET ITEMS VOCAB	-->
+#^/country-budget-items-vocab
+<div class="sector_vocab">
+	<div class="header">
+		{_it./country-budget-items@vocabulary-name||}{_it./country-budget-items@vocabulary-withdrawn&&_it:/withdrawn||} <span class="count">( {_it./country-budget-items/budget-item.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./country-budget-items@vocabulary-description||}</div>
+	{_it./country-budget-items/budget-item:/budget-item||}
+</div>
+
+<!--	COUNTRY BUDGET ITEMS TEMPLATE	-->
+#^/budget-item
+<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">{_it.@code-name||}</span>{_it.@code&&_it:/sector_code||}
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+	</div>
+</div>
+
+#^/wrap-activity-status	<!--	ACTIVITY STATUS WRAPPER	-->
+	<div class="wrap_activity_status">
+		<span>activity status: {_it./activity-status@code-name||}</span>
+		<div class="status_desc">{_it./activity-status@code-description||/empty-description}</div>
+	</div>
+
+#^/wrap-contact-info	<!--	CONTACT INFO WRAPPER	-->
+	<div class="wrap_contact_info">
+		{_it./contact-info:/contact-info}
+	</div>
+
+#^/contact-info	<!--	CONTACT INFO	-->
+<div class="contact_info">
+{_it.@type&&_it:/contact-type||}
+{_it./organisation/narrative&&_it:/wrap-organisation||}
+{_it./department/narrative&&_it:/wrap-department||}
+{_it./person-name/narrative&&_it:/wrap-person-name||}
+{_it./job-title/narrative&&_it:/wrap-job-title||}
+{_it./telephone.0.text&&_it:/wrap-telephone||}
+{_it./email.0.text&&_it:/wrap-email||}
+{_it./website.0.text&&_it:/wrap-website||}
+{_it./mailing-address&&_it:/wrap-mailing-address||}
+</div>
+
+#^/wrap-organisation	<!--	CONTACT INFO TEXT WRAPPERS	-->
+<div class="wrap_contact_org">{_it./organisation/narrative.0.text||}</div>
+#^/wrap-department
+<div class="wrap_contact_dept">{_it./department/narrative.0.text||}</div>
+#^/wrap-person-name
+<div class="wrap_contact_name">{_it./person-name/narrative.0.text||}</div>
+#^/wrap-job-title
+<div class="wrap_contact_title">{_it./job-title/narrative.0.text||}</div>
+#^/wrap-telephone
+<div class="wrap_contact_tel">{_it./telephone:/info_text}</div>
+#^/wrap-email
+<div class="wrap_contact_email">{_it./email:/email}</div>
+#^/wrap-website
+<div class="wrap_contact_web">{_it./website:/website}</div>
+#^/wrap-mailing-address
+{_it./mailing-address.0./narrative.0.text&&_it:/mailing-address-wrap||}
+#^/mailing-address-wrap
+<div class="wrap_contact_add">{_it./mailing-address:/mailing-address}</div>
+
+#^/contact-type
+<div class="wrap_contact_type">{_it.@type-name}</div>
+#^/mailing-address	<!--	CONTACT INFO MAILING ADDRESS TEXT FOR MULTIPLE ITEMS	-->
+{_it./narrative:/info_text}
+#^/info_text	<!--	CONTACT INFO TEXT FOR MULTIPLE ITEMS	-->
+<div>{_it.text}</div>
+#^/website	<!--	WEBSITE LINKS FOR MULTIPLE ITEMS	-->
+<a href="{_it.text}" target="_blank">{_it.text}</a>
+#^/email	<!--	EMAIL LINKS FOR MULTIPLE ITEMS	-->
+<a href="mailto:{_it.text}" target="_blank">{_it.text}</a>
+
+#^/wrap-related-activity	<!--	RELATED ACTIVITY (PREVIOUSLY FAMILY TREE) WRAPPER	-->
+	<div class="wrap_related_activity">
+		<div class="header_section sticky collapsable">related activity<span class="count">( {_it./related-activity.length||no_length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="related_ref" data-sort="string" data-sort-multicolumn="0,1,2">REFERENCE IDENTIFIER</th>
+					<th class="related_type" data-sort="int" data-sort-multicolumn="0,1,2">TYPE</th>
+					<th class="related_desc" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>			
+				</tr>
+			</thead>
+			{_it./related-activity:/related-activity}
+		</table>
+	</div>
+
+<!--	RELATED ACTIVITY ROWS	-->
+#^/related-activity
+<tr class="row_count">
+	<td class="related_ref" data-sort-value="{_it.@ref}"><a href="{origin}/savi/?aid={_it.@ref}" target="_blank">{_it.@ref||}</a></td>
+	<td class="related_type" data-sort-value="{_it.@type-code}">{_it.@type-name||}</td>
+	<td class="related_desc" data-sort-value="{_it.@type-description}">{_it.@type-description||/empty-description}</td>
+</tr>
+
+#^/wrap-tag	<!--	TAG WRAPPER	-->
+	<div class="wrap_tag">
+		<div class="header_section sticky collapsable">tag<span class="count">( {_it./tag.length||no_length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="tag_desc" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>
+					<th class="tag_code" data-sort="int" data-sort-multicolumn="0,1,2">CODE</th>
+					<th class="tag_vocab" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>			
+				</tr>
+			</thead>
+			{_it./tag:/tag}
+		</table>
+	</div>
+
+<!--	TAG ROWS	-->
+#^/tag
+<tr class="row_count">
+	<td class="tag_desc" data-sort-value="{_it.@code}">
+		{_it.@code-name||}
+		{_it.@vocabulary==99&&_it:/tag-vocab-99-narr||}
+	</td>
+	<td class="tag_code" data-sort-value="{_it.@code}">{_it.@code||}</td>
+	<td class="tag_vocab" data-sort-value="{_it.@vocabulary}">
+		{_it.@vocabulary==99&&_it:/tag-vocab-99||_it:/tag-vocab-url}
+	</td>
+</tr>
+
+#^/tag-vocab-99-narr
+{_it./narrative&&_it:/wrap-narrative||}
+
+#^/tag-vocab-url
+<a href="{_it.@vocabulary-url}" target="_blank">{_it.@vocabulary-name}</a>
+
+#^/tag-vocab-99
+{_it.@vocabulary-uri&&_it:/tag-vocab-uri||_it.@vocabulary-name}
+
+#^/tag-vocab-uri
+<a href="{_it.@vocabulary-uri}" target="_blank">{_it.@vocabulary-name}</a>
+
+#^/wrap-policy-marker	<!--	POLICY MARKER WRAPPER	-->
+	<div class="wrap_policy_marker">
+		<div class="header_section sticky collapsable">policy marker<span class="count">( {_it./policy-marker.length||no_length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="policy_code" data-sort="int" data-sort-multicolumn="0,1,2">CODELIST</th>
+					<th class="policy_sig" data-sort="int" data-sort-multicolumn="0,1,2">SIGNIFICANCE</th>
+					<th class="policy_vocab" data-sort="int" data-sort-multicolumn="0,1,2">VOCABULARY</th>	
+					<th class="policy_desc" data-sort="int" data-sort-multicolumn="0,1,2">DESCRIPTION</th>						
+				</tr>
+			</thead>
+			{_it./policy-marker:/policy-marker}
+		</table>
+	</div>
+
+<!--	POLICY MARKER ROWS	-->
+#^/policy-marker
+<tr class="row_count">
+	<td class="policy_code" data-sort-value="{_it.@code}">
+		{_it.@code-name||}
+		{_it.@vocabulary==99&&_it:/policy-vocab-99-narr||}
+	</td>
+	<td class="policy_sig" data-sort-value="{_it.@significance}">{_it.@significance-name||}</td>
+	<td class="policy_vocab" data-sort-value="{_it.@vocabulary}">
+		{_it.@vocabulary==99&&_it:/policy-vocab-99||_it:/policy-vocab-url}
+	</td>
+	<td class="policy_desc" data-sort-value="{_it.@significance}">{_it.@significance-description||/empty-description}</td>
+</tr>
+
+#^/policy-vocab-99-narr
+{_it./narrative.0.text&&_it:/policy-vocab-narr||_it:/policy-vocab-code}
+
+#^/policy-vocab-code
+{_it.@code||}
+
+#^/policy-vocab-url
+<a href="{_it.@vocabulary-url}" target="_blank">{_it.@vocabulary-name}</a>
+
+#^/policy-vocab-narr
+{_it./narrative&&_it:/wrap-narrative||}
+<div class="policy_num"><span class="ref">CODE</span> {_it.@code||}</div>
+
+#^/policy-vocab-99
+{_it.@vocabulary-uri&&_it:/policy-vocab-uri||_it.@vocabulary-name}
+
+#^/policy-vocab-uri
+<a href="{_it.@vocabulary-uri}" target="_blank">{_it.@vocabulary-name}</a>
+	
+#^/wrap-result	<!--	RESULT WRAPPER	-->
+	<div class="wrap_result">
+		<div class="header_section sticky collapsable">
+			result<span class="count">( {_it./result.length||no_length} )</span>
+			<div class="wrap_length">
+				{_it./result-1&&_it:result-1-length||}
+				{_it./result-2&&_it:result-2-length||}
+				{_it./result-3&&_it:result-3-length||}
+				{_it./result-9&&_it:result-9-length||}
+			</div>
+		</div>
+		<div class="header glossary">GLOSSARY</div>
+		{_it./result-1.0:/result_type_description||}
+		{_it./result-2.0:/result_type_description||}
+		{_it./result-3.0:/result_type_description||}
+		{_it./result-9.0:/result_type_description||}
+		{_it./result-1&&_it:result-1||}
+		{_it./result-2&&_it:result-2||}
+		{_it./result-3&&_it:result-3||}
+		{_it./result-9&&_it:result-9||}
+	</div>
+	
+<!--	RESULT LENGTH	-->
+#^result-1-length
+<div class="length">output<span class="count">( {_it./result-1.length||no_length} )</span></div>
+#^result-2-length
+<div class="length">outcome<span class="count">( {_it./result-2.length||no_length} )</span></div> 
+#^result-3-length
+<div class="length">impact<span class="count">( {_it./result-3.length||no_length} )</span></div>
+#^result-9-length
+<div class="length">other<span class="count">( {_it./result-9.length||no_length} )</span></div>
+#^indicator-length
+<div class="length">indicator<span class="count">( {_it./indicator.length||no_length} )</span></div>
+
+<!--	GLOSSARY DESCRIPTIONS	-->
+#^/result_type_description
+<div class="sector_list_wrap">
+	<div class="sector_list"> 
+		<span>{_it.@type-name||}</span><span class="sector_list_description">{_it.@type-description||/empty-description}</span>
+	</div>
+</div>
+
+<!--	RESULT ROWS	-->
+#^result-1
+<div class="wrap_result_type">{_it./result-1:/result_indicator||}</div>
+#^result-2
+<div class="wrap_result_type">{_it./result-2:/result_indicator||}</div>
+#^result-3
+<div class="wrap_result_type">{_it./result-3:/result_indicator||}</div>
+#^result-9
+<div class="wrap_result_type">{_it./result-9:/result_indicator||}</div>
+
+<!--	RESULT INDICATOR	-->
+#^/result_indicator
+<div class="header_section sticky collapsable bright">
+	{_it.@type-name||}
+	<div class="wrap_length">
+		{_it./indicator&&_it:indicator-length||}
+	</div>
+</div>
+<div class="wrap_result_text">{_it./reference&&_it:/result_text_reference||_it:/result_text||}</div>
+<div class="wrap_result_indicator">{_it./indicator:/result_indicator_facet||}</div>
+
+#^/result_text_reference
+<div class="result_indicator left_indi">
+	{_it./title/narrative.0.text&&_it:/result_title_text||}
+	{_it./description/narrative&&_it:/indicator_desc||}
+</div><div class="result_indicator">
+	{_it./reference&&_it:/wrap-result-reference||}
+</div>
+{_it./document-link&&_it:/wrap-document-link||}	
+
+#^/result_text
+{_it./title/narrative.0.text&&_it:/result_title_text||}
+{_it./description/narrative&&_it:/indicator_desc||}
+{_it./document-link&&_it:/wrap-document-link||}
+
+#^/result_title_text
+<div class="result_main_title">{_it./title/narrative.0.text||}</div>
+
+#^/result_indicator_facet
+{_it:/result_indicator_row_indicator||}
+<div class="wrap_result_table">
+	<table class="budget result">
+		{result-table}
+		{_it.@measure&&_it:/result_measure||}
+		{_it./period&&_it./facet&&_it:/wrap_result_indicator_row_all||_it:/result_indicator_period_only}
+	</table>
+</div>
+
+#^/wrap_result_indicator_row_all
+{_it./facet:/result_indicator_row_all||}
+
+#^/result_indicator_period_only			<!--	DISPLAY WHEN ONLY PERIOD AND NO VALUE IS FOUND	-->
+{_it./period:/result_indicator_row||}
+
+#^result-table	<!--	RESULT TABLE HEADERS	-->
+<thead>
+	<tr>
+		<th class="result_indi">FACET</th>
+		<th class="result_base">BASELINE</th>
+		<th class="result_target">TARGET</th>
+		<th class="result_actual">ACTUAL</th>			
+		<th class="result_percent">%</th>			
+		<th class="result_period">PERIOD</th>				
+	</tr>
+</thead>
+
+#^/result_measure		<!--	@MEASURE ROW	-->
+<tr class="row_measure">
+	<td></td>
+	<td></td>
+	<td title="{_it.@measure-description||}">{_it.@measure-name||}</td>
+	<td title="{_it.@measure-description||}">{_it.@measure-name||}</td>
+	<td></td>
+	<td></td>
+</tr>
+
+#^/result_indicator_row_all
+{_it./value:/result_indicator_row||}
+
+#^/result_indicator_row_indicator		<!--	RESULT INDICATOR SECTION : TITLE, DESCRIPTION & OTHER INFORMATION	-->
+{_it./reference&&_it:/indicator_text_reference||_it:/indicator_text||}
+
+#^/indicator_text_reference				<!--	USE WHEN REFERENCE OR DOCUMENTS ARE PUBLISHED	-->
+<div class="wrap_result_indicator">
+	<div class="header_section collapsable brighter"><span>INDICATOR</span></div>
+	<div class="result_indicator left_indi">
+		<div class="result_title">{_it./title/narrative.0.text||}</div>
+		{_it./description/narrative&&_it:/indicator_desc||}
+	</div><div class="result_indicator">	
+		{_it./reference&&_it:/wrap-result-reference||}
+	</div>
+	{_it./document-link&&_it:/wrap-document-link||}
+</div>
+
+#^/indicator_text						<!--	USE WHEN REFERENCE ARE NOT ARE PUBLISHED	-->
+<div class="wrap_result_indicator">
+	<div class="header_section collapsable brighter"><span>INDICATOR</span></div>
+	<div class="result_title">{_it./title/narrative.0.text||}</div>
+	{_it./description/narrative&&_it:/indicator_desc||}
+	{_it./document-link&&_it:/wrap-document-link||}
+</div>
+
+#^/indicator_desc
+<div class="result_indi_desc">{_it./description/narrative.0.text||}</div>
+
+#^/result_indicator_row				<!--	RESULTS FACETS, BASELINE, TARGET, ACTUAL AND PERIOD	-->
+<tr class="row_count">
+	<td class="result_indi">
+		{_it./dimension:/result_indicator_row_facet_dimension_wrap||/empty_dimension}
+		{_it./location:/result_indicator_row_facet_location_wrap||/empty_location}
+	</td>
+	<td class="result_base">{_it.@baseline-year&&_it:/result_year||}{_it.@baseline||/empty_result}</td>
+	<td class="result_target">{_it.@target||/empty_result}</td>
+	<td class="result_actual">{_it.@actual||/empty_result}</td>
+	<td class="result_percent">{_it.@percent>=0&&_it:@percent||_it:@percent-null}</td>
+	<td class="result_period">
+		{_it./period-percent&&_it:/periods||/empty_period}
+	</td>
+</tr>
+{_it./baseline/comment/narrative&&_it:/baseline_comment||}
+{_it./target/comment/narrative&&_it:/target_comment||}
+{_it./actual/comment/narrative&&_it:/actual_comment||}
+
+#^/periods
+{_it./period-start@iso-date||} : {_it./period-end@iso-date||}
+<div class="result_date_bar">
+	<div class="result_date_overlay" style="width:calc({_it./period-percent} * 1.30px); background-color:{period.{_it./period-percent}};"></div>
+</div>
+
+#^/baseline_comment
+<tr class="row_comment baseline_comment">
+	<td></td>
+	<td colspan="5">
+		<div class="result_comment_wrap">
+			<div class="result_comment_type"><b>Baseline</b> comment</div>
+			<div class="result_comment">{_it./baseline/comment/narrative.0.text||}</div>
+		</div>
+	</td>
+</tr>
+#^/target_comment
+<tr class="row_comment target_comment">
+	<td></td>
+	<td colspan="5">
+		<div class="result_comment_wrap">
+			<div class="result_comment_type"><b>Target</b> comment</div>
+			<div class="result_comment">{_it./target/comment/narrative.0.text||}</div>
+		</div>
+	</td>
+</tr>
+#^/actual_comment
+<tr class="row_comment actual_comment">
+	<td></td>
+	<td colspan="5">
+		<div class="result_comment_wrap">
+			<div class="result_comment_type"><b>Actual</b> comment</div>
+			<div class="result_comment">{_it./actual/comment/narrative.0.text||}</div>
+		</div>
+	</td>
+</tr>
+
+#^/empty_dimension
+<div class="result_empty">No dimension has been provided</div>
+#^/empty_location
+<div class="result_empty">No location has been provided</div>
+#^/empty_period
+<div class="result_empty">Not provided</div>
+
+#^/result_indicator_row_facet_dimension_wrap
+{_it.@name||_it.@value&&_it:/result_indicator_row_facet_dimension||/empty_dimension}
+
+#^/result_indicator_row_facet_dimension
+<div class="result_facet">
+	<span class="result_facet_name">{_it.@name||}</span> : <span class="result_facet_value">{_it.@value||}</span>
+</div>
+
+#^/result_indicator_row_facet_location_wrap
+{_it.@ref&&_it:/result_indicator_row_facet_location||/empty_location}
+
+#^/result_indicator_row_facet_location
+<div class="result_facet">
+	<span class="result_facet_name">Location</span> : <span class="result_facet_value">{_it.@ref||}</span>
+</div>
+
+#^/result_year
+<div class="result_base_year">{_it.@baseline-year||}</div>
+#^/empty_result
+<div class="result_empty">Not provided</div>
+
+#^@percent trim=ends
+<div class="result_percent_wrap">
+	<span class="result_percent_value">{_it.@percent}%</span>
+	<span class="result_percent_dot" style="background-color:hsl({_it.@percent||},100%,50%);"></span>
+</div>
+#^@percent-null trim=ends
+<div class="result_percent_wrap">N/A</div>
+
+#^period form=json	<!--	DATE BACKGROUND COLOR	-->
+{
+	"100":"rgb(100,100,100)",
+}
+
+#^/wrap-result-reference
+<div class="wrap_result_indi_ref">
+	<div class="result_indi_head">REFERENCE</div>
+	{_it./reference:/result_reference}
+</div>
+
+#^/result_reference
+<div class="result_indi_ref">
+	{_it.@vocabulary==99&&_it:/wrap-result_vocab-99||_it:/result_vocab}	
+	{_it.@code&&_it.@indicator-uri&&_it:/result_uri||_it:/result_code}
+</div>
+
+#^/wrap-result_vocab-99
+{_it.@indicator-uri&&it:/result_vocab-99-uri||_it:/result_vocab-99}
+
+#^/result_vocab-99-uri
+<div><span class="ref">VOCAB</span> <a href="{_it.@indicator-uri||}" target="_blank">{_it.@vocabulary-name||}</a> <span class="type">{_it.@vocabulary||}</span></div>
+#^/result_vocab-99
+<div><span class="ref">VOCAB</span> {_it.@vocabulary-name||} <span class="type">{_it.@vocabulary||}</span></div>
+
+#^/result_vocab
+<div><span class="ref">VOCAB</span> <a href="{_it.@vocabulary-url||}" target="_blank">{_it.@vocabulary-name||}</a> <span class="type">{_it.@vocabulary||}</span></div>
+
+#^/result_code
+<div><span class="ref">CODE</span> {_it.@code||}</div>
+
+#^/result_uri
+<div><span class="ref">CODE</span> <a href="{_it.@indicator-uri||}" target="_blank">{_it.@code||}</a></div>
+
+#^all-charts
+<div class="showcharts">
+<script type="application/json">
+{
+	chart:"Line",
+	options:{
+		width:	"920px",
+		height:	"240px",
+			showArea: true,
+			showLine: true,
+			showPoint: true,
+			axisX: {
+			type: Chartist.FixedScaleAxis,
+			divisor: 8,
+			labelInterpolationFnc: function(value) {
+				return (new Date(value*1000)).toISOString().slice(0,10)
+			}
+		},
+		axisY: {
+			referenceValue: 0,
+			offset: 80,
+			scaleMinSpace: 24,
+			type: Chartist.AutoScaleAxis,
+			labelInterpolationFnc: function(value) {
+				return ((""+parseFloat(value)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+					return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
+				}))
+			}
+		}
+	},
+	parents:2
+}
+</script>
+</div>
+
+#^/wrap-all-chart	<!--	ALL CHARTS WRAPPER	-->	
+	<div class="wrap_transaction">
+		<div class="header_section collapsable">
+			Financial Overview
+			<div class="wrap_length">
+				{_it./transaction-11&&_it:transaction-11-length||}
+				{_it./transaction-1&&_it:transaction-1-length||}
+				{_it./transaction-2&&_it:transaction-2-length||}
+				{_it./transaction-3&&_it:transaction-3-length||}
+				{_it./transaction-4&&_it:transaction-4-length||}
+				{_it./transaction-5&&_it:transaction-5-length||}
+				{_it./transaction-6&&_it:transaction-6-length||}
+				{_it./transaction-7&&_it:transaction-7-length||}
+				{_it./transaction-8&&_it:transaction-8-length||}
+				{_it./transaction-9&&_it:transaction-9-length||}
+				{_it./transaction-10&&_it:transaction-10-length||}
+				{_it./transaction-12&&_it:transaction-12-length||}
+				{_it./transaction-13&&_it:transaction-13-length||}
+				{_it./planned-disbursement&&_it:transaction-14-length||}
+				{_it./budget&&_it:transaction-15-length||}
+			</div>
+		</div>
+		<div class="wrap_legend">
+			{_it./transaction-11&&_it:transaction-11-chart||}
+			{_it./transaction-1&&_it:transaction-1-chart||}
+			{_it./transaction-2&&_it:transaction-2-chart||}
+			{_it./transaction-3&&_it:transaction-3-chart||}
+			{_it./transaction-4&&_it:transaction-4-chart||}
+			{_it./transaction-5&&_it:transaction-5-chart||}
+			{_it./transaction-6&&_it:transaction-6-chart||}
+			{_it./transaction-7&&_it:transaction-7-chart||}
+			{_it./transaction-8&&_it:transaction-8-chart||}
+			{_it./transaction-9&&_it:transaction-9-chart||}
+			{_it./transaction-10&&_it:transaction-10-chart||}
+			{_it./transaction-12&&_it:transaction-12-chart||}
+			{_it./transaction-13&&_it:transaction-13-chart||}
+			{_it./planned-disbursement&&_it:transaction-14-chart||}
+			{_it./budget&&_it:transaction-15-chart||}
+		</div>
+		{all-charts}
+	</div>
+	
+#^transaction-1-chart
+<div class="legend chart_1"><span></span>Incoming Funds</div><!---->
+#^transaction-2-chart
+<div class="legend chart_2"><span></span>Outgoing Commitment</div><!---->
+#^transaction-3-chart
+<div class="legend chart_3"><span></span>Disbursement</div><!---->
+#^transaction-4-chart
+<div class="legend chart_4"><span></span>Expenditure</div><!---->
+#^transaction-5-chart
+<div class="legend chart_5"><span></span>Interest Payment</div><!---->
+#^transaction-6-chart
+<div class="legend chart_6"><span></span>Loan Repayment</div><!---->
+#^transaction-7-chart
+<div class="legend chart_7"><span></span>Reimbursement</div><!---->
+#^transaction-8-chart
+<div class="legend chart_8"><span></span>Purchase of Equity</div><!---->
+#^transaction-9-chart
+<div class="legend chart_9"><span></span>Sale of Equity</div><!---->
+#^transaction-10-chart
+<div class="legend chart_10"><span></span>Credit Guarantee</div><!---->
+#^transaction-11-chart
+<div class="legend chart_11"><span></span>Incoming Commitment</div><!---->
+#^transaction-12-chart
+<div class="legend chart_12"><span></span>Outgoing Pledge</div><!---->
+#^transaction-13-chart
+<div class="legend chart_13"><span></span>Incoming Pledge</div><!---->
+#^transaction-14-chart
+<div class="legend chart_14"><span></span>Planned Disbursement</div><!---->
+#^transaction-15-chart
+<div class="legend chart_15"><span></span>Budget</div><!---->
+
+#^/wrap-transaction	<!--	TRANSACTION WRAPPER	-->	
+	<div class="wrap_transaction">
+		<div class="header_section collapsable">
+			Transactions <span class="count">( {_it./transaction.length||no_length} )</span>
+		</div>
+		{_it./transaction-11&&_it:transaction-11||}
+		{_it./transaction-1&&_it:transaction-1||}
+		{_it./transaction-2&&_it:transaction-2||}
+		{_it./transaction-3&&_it:transaction-3||}
+		{_it./transaction-4&&_it:transaction-4||}
+		{_it./transaction-5&&_it:transaction-5||}
+		{_it./transaction-6&&_it:transaction-6||}
+		{_it./transaction-7&&_it:transaction-7||}
+		{_it./transaction-8&&_it:transaction-8||}
+		{_it./transaction-9&&_it:transaction-9||}
+		{_it./transaction-10&&_it:transaction-10||}
+		{_it./transaction-12&&_it:transaction-12||}
+		{_it./transaction-13&&_it:transaction-13||}
+	</div>
+	
+<!--	TRANSACTION LENGTH	-->
+#^transaction-1-length
+<div class="length">Incoming Funds <span class="count">( {_it./transaction-1.length||no_length} )</span></div>
+#^transaction-2-length
+<div class="length">Outgoing Commitment <span class="count">( {_it./transaction-2.length||no_length} )</span></div>
+#^transaction-3-length
+<div class="length">Disbursement <span class="count">( {_it./transaction-3.length||no_length} )</span></div>
+#^transaction-4-length
+<div class="length">Expenditure <span class="count">( {_it./transaction-4.length||no_length} )</span></div>
+#^transaction-5-length
+<div class="length">Interest Payment <span class="count">( {_it./transaction-5.length||no_length} )</span></div>
+#^transaction-6-length
+<div class="length">Loan Repayment <span class="count">( {_it./transaction-6.length||no_length} )</span></div>
+#^transaction-7-length
+<div class="length">Reimbursement <span class="count">( {_it./transaction-7.length||no_length} )</span></div>
+#^transaction-8-length
+<div class="length">Purchase of Equity <span class="count">( {_it./transaction-8.length||no_length} )</span></div>
+#^transaction-9-length
+<div class="length">Sale of Equity <span class="count">( {_it./transaction-9.length||no_length} )</span></div>
+#^transaction-10-length
+<div class="length">Credit Guarantee <span class="count">( {_it./transaction-10.length||no_length} )</span></div>
+#^transaction-11-length
+<div class="length">Incoming Commitment <span class="count">( {_it./transaction-11.length||no_length} )</span></div>
+#^transaction-12-length
+<div class="length">Outgoing Pledge <span class="count">( {_it./transaction-12.length||no_length} )</span></div>
+#^transaction-13-length
+<div class="length">Incoming Pledge <span class="count">( {_it./transaction-13.length||no_length} )</span></div>
+#^transaction-14-length
+<div class="length">Planned Disbursement <span class="count">( {_it./planned-disbursement.length||no_length} )</span></div>
+#^transaction-15-length
+<div class="length">Budget <span class="count">( {_it./budget.length||no_length} )</span></div>
+
+#^transaction-chart	<!--	TRANSACTION CHART	-->	
+<div class="showchart">
+<script type="application/json">
+{
+	chart:"Line",
+	options:{
+		width:	"920px",
+		height:	"240px",
+			showArea: false,
+			showLine: true,
+			showPoint: true,
+			axisX: {
+			type: Chartist.FixedScaleAxis,
+			divisor: 8,
+			labelInterpolationFnc: function(value) {
+				return (new Date(value*1000)).toISOString().slice(0,10)
+			}
+		},
+		axisY: {
+			referenceValue: 0,
+			offset: 80,
+			scaleMinSpace: 24,
+			type: Chartist.AutoScaleAxis,
+			labelInterpolationFnc: function(value) {
+				return ((""+parseFloat(value)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+					return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
+				}))+"\r\n{_it.currency}"
+			}
+		}
+	},
+	series:[
+		{
+			className:"chart-line-{_it.name}",
+			name: "{_it.name}",
+			data: {_it.series}
+		}
+	]
+}
+</script>
+</div>
+
+<!--	TRANSACTION TYPES	-->
+#^transaction-1
+	<div class="header_section sticky collapsable bright">Incoming Funds <span class="count">( {_it./transaction-1.length||no_length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-1:/transaction||}
+	</table>
+	<div class="chart_trans_1"><div class="legend chart_1"><span></span>Incoming Funds</div>{_it./transaction-1-data&&_it./transaction-1-data:transaction-chart||}</div>
+#^transaction-2
+	<div class="header_section sticky collapsable bright">Outgoing Commitment <span class="count">( {_it./transaction-2.length||no_length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-2:/transaction||}
+	</table>
+	<div class="chart_trans_2"><div class="legend chart_2"><span></span>Outgoing Commitment</div>{_it./transaction-2-data&&_it./transaction-2-data:transaction-chart||}</div>
+#^transaction-3
+	<div class="header_section sticky collapsable bright">Disbursement <span class="count">( {_it./transaction-3.length||no_length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-3:/transaction||}
+	</table>
+	<div class="chart_trans_3"><div class="legend chart_3"><span></span>Disbursement</div>{_it./transaction-3-data&&_it./transaction-3-data:transaction-chart||}</div>
+#^transaction-4
+	<div class="header_section sticky collapsable bright">Expenditure <span class="count">( {_it./transaction-4.length||no_length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-4:/transaction||}
+	</table>
+	<div class="chart_trans_4"><div class="legend chart_4"><span></span>Expenditure</div>{_it./transaction-4-data&&_it./transaction-4-data:transaction-chart||}</div>
+#^transaction-5
+	<div class="header_section sticky collapsable bright">Interest Payment <span class="count">( {_it./transaction-5.length||no_length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-5:/transaction||}
+	</table>
+	<div class="chart_trans_5"><div class="legend chart_5"><span></span>Interest Payment</div>{_it./transaction-5-data&&_it./transaction-5-data:transaction-chart||}</div>
+#^transaction-6
+	<div class="header_section sticky collapsable bright">Loan Repayment <span class="count">( {_it./transaction-6.length||no_length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-6:/transaction||}
+	</table>
+	<div class="chart_trans_6"><div class="legend chart_6"><span></span>Loan Repayment</div>{_it./transaction-6-data&&_it./transaction-6-data:transaction-chart||}</div>
+#^transaction-7
+	<div class="header_section sticky collapsable bright">Reimbursement <span class="count">( {_it./transaction-7.length||no_length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-7:/transaction||}
+	</table>
+	<div class="chart_trans_7"><div class="legend chart_7"><span></span>Reimbursement</div>{_it./transaction-7-data&&_it./transaction-7-data:transaction-chart||}</div>
+#^transaction-8
+	<div class="header_section sticky collapsable bright">Purchase of Equity <span class="count">( {_it./transaction-8.length||no_length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-8:/transaction||}
+	</table>
+	<div class="chart_trans_8"><div class="legend chart_8"><span></span>Purchase of Equity</div>{_it./transaction-8-data&&_it./transaction-8-data:transaction-chart||}</div>
+#^transaction-9
+	<div class="header_section sticky collapsable bright">Sale of Equity <span class="count">( {_it./transaction-9.length||no_length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-9:/transaction||}
+	</table>
+	<div class="chart_trans_9"><div class="legend chart_9"><span></span>Sale of Equity</div>{_it./transaction-9-data&&_it./transaction-9-data:transaction-chart||}</div>
+#^transaction-10
+	<div class="header_section sticky collapsable bright">Credit Guarantee <span class="count">( {_it./transaction-10.length||no_length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-10:/transaction||}
+	</table>
+	<div class="chart_trans_10"><div class="legend chart_10"><span></span>Credit Guarantee</div>{_it./transaction-10-data&&_it./transaction-10-data:transaction-chart||}</div>
+#^transaction-11
+	<div class="header_section sticky collapsable bright">Incoming Commitment <span class="count">( {_it./transaction-11.length||no_length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-11:/transaction||}
+	</table>
+	<div class="chart_trans_11"><div class="legend chart_11"><span></span>Incoming Commitment</div>{_it./transaction-11-data&&_it./transaction-11-data:transaction-chart||}</div>
+#^transaction-12
+	<div class="header_section sticky collapsable bright">Outgoing Pledge <span class="count">( {_it./transaction-12.length||no_length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-12:/transaction||}
+	</table>
+	<div class="chart_trans_12"><div class="legend chart_12"><span></span>Outgoing Funds</div>{_it./transaction-12-data&&_it./transaction-12-data:transaction-chart||}</div>
+#^transaction-13
+	<div class="header_section sticky collapsable bright">Incoming Pledge <span class="count">( {_it./transaction-13.length||no_length} )</span></div>
+	<table class="budget act_trans sortable">
+		{transaction-table}
+		{_it./transaction-13:/transaction||}
+	</table>
+	<div class="chart_trans_13"><div class="legend chart_13"><span></span>Incoming Pledge</div>{_it./transaction-13-data&&_it./transaction-13-data:transaction-chart||}</div>
+	
+#^transaction-table
+<thead>
+	<tr>
+		<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">DATE</th>
+		<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="description">DESCRIPTION</th>
+		<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="provider">PROVIDER</th>
+		<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="receiver">RECEIVER</th>
+		<th data-sort="int" data-sort-multicolumn="0,1,2,3,4" class="value">VALUE</th>
+	</tr>
+</thead>
+
+<!--	TRANSACTION ROWS	-->
+#^/transaction
+<tr class="row_count">
+	<td class="date">{_it./transaction-date@iso-date||}{_it.@humanitarian&&_it:/transaction-humanitarian||}</td>
+	<td class="description">
+		{_it./description/narrative.0.text&&_it:/description/narrative||}
+		<div class="fold">
+			{_it.@ref&&_it:/trans-ref||}
+			{_it./sector&&_it:/sector-trans-wrap||}
+			{_it./recipient-country@code&&_it:/recipient-country/code||}
+			{_it./recipient-region@code&&_it:/recipient-region/code||}
+			{_it./disbursement-channel@code&&_it:/disbursement-channel/code||}
+			{_it./flow-type@code&&_it:/flow-type/code||}
+			{_it./aid-type&&_it:/aid-type||}
+			{_it./finance-type@code&&_it:/finance-type/code||}
+			{_it./tied-status@code&&_it:/tied-status/code||}
+		</div>
+	</td>
+	<td class="provider">
+		{_it./provider-org/narrative.0.text&&_it:/provider-org/narrative||}
+		{_it./provider-org@ref&&_it:/provider-org-ref||}
+		{_it./provider-org@provider-activity-id&&_it:/provider-org-aid||}
+		{_it./provider-org@type&&_it:/provider-org-type||}
+	</td>
+	<td class="receiver">
+		{_it./receiver-org/narrative.0.text&&_it:/receiver-org/narrative||}
+		{_it./receiver-org@ref&&_it:/receiver-org-ref||}
+		{_it./receiver-org@receiver-activity-id&&_it:/receiver-org-aid||}
+		{_it./receiver-org@type&&_it:/receiver-org-type||}
+	</td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
+</tr>
+
+#^/description/narrative
+<div class="description_text">{_it./description/narrative.0.text||}</div>
+#^/provider-org/narrative
+<div class="provider_text">{_it./provider-org/narrative.0.text||}</div>
+#^/receiver-org/narrative
+<div class="receiver_text">{_it./receiver-org/narrative.0.text||}</div>
+
+#^/trans-ref
+<div>
+	<span title="An internal reference linking this transaction back to the publisher’s financial management system" class="ref">
+		REF <span>{_it.@ref||}</span>
+	</span>
+</div>
+
+#^/sector-trans-wrap
+{_it./sector:/sector-trans||}
+
+#^/sector-trans
+{_it.@vocabulary>=2&&_it:/sector/code-99||_it:/sector/code}
+
+#^/sector/code-99
+<div>
+	<span title="Sector" class="ref">SECTOR <span title="{_it.@code-description||}">{_it./narrative.0.text||}</span> {_it:/transaction-code}</span>
+</div>
+
+#^/sector/code
+<div>
+	<span title="Sector" class="ref">SECTOR DAC <span title="{_it.@code-description||}">{_it.@code-name||}</span> {_it:/transaction-code}</span>
+</div>
+
+#^/transaction-code		<!--	TRANSACTION CODE SPANS	-->
+<span class="type">{_it.@code}</span>
+
+#^/recipient-country/code
+<div>
+	<span title="Recipient Country" class="ref">COUNTRY <span>{_it./recipient-country@code-name||}</span> <span class="type">{_it./recipient-country@code}</span></span>
+</div>
+
+#^/recipient-region/code
+<div>
+	<span title="Recipient Region" class="ref">REGION <span>{_it./recipient-region@code-name||}</span> <span class="type">{_it./recipient-region@code}</span></span>
+</div>
+
+#^/disbursement-channel/code
+<div>
+	<span title="Disbursement Channel" class="ref">
+		CHANNEL <span title="{_it./disbursement-channel@code-description||}">{_it./disbursement-channel@code-name||}</span> <span class="type">{_it./disbursement-channel@code}</span>
+	</span>
+</div>
+
+#^/flow-type/code
+<div>
+	<span title="Flow Type" class="ref">
+		FLOW <span title="{_it./flow-type@code-description||}">{_it./flow-type@code-name||}{_it./flow-type@code-withdrawn&&_it:/withdrawn||}
+		</span> <span class="type">{_it./flow-type@code}</span>
+	</span>
+</div>
+
+#^/aid-type
+{_it./aid-type:/aid-type/code||}
+
+#^/aid-type/code
+<div>
+	<span title="Aid Type" class="ref">AID <span title="{_it.@code-description||}">{_it.@code-name||}</span> {_it:/transaction-code}</span>
+</div>
+
+#^/finance-type/code
+<div>
+	<span title="Finance Type" class="ref">
+		FINANCE <span title="{_it./finance-type@code-description||/empty-description}">{_it./finance-type@code-name||}{_it./finance-type@code-withdrawn&&_it:/withdrawn||}</span> <span class="type">{_it./finance-type@code}</span>
+	</span>
+</div>
+
+#^/tied-status/code
+<div>
+	<span title="Flow Type" class="ref">STATUS <span title="{_it./tied-status@code-description||}">{_it./tied-status@code-name||}</span> <span class="type">{_it./tied-status@code}</span></span>
+</div>
+
+#^/transaction-humanitarian
+<div class="hum_transaction">Humanitarian</div>
+
+#^/provider-org-ref
+<div>
+	<span title="Machine-readable identification string for the organisation issuing the report." class="ref">
+		REF <a href="{origin}/ctrack.html?publisher={_it./provider-org@ref}" target="_blank">{_it./provider-org@ref||}</a>
+	</span>
+</div>
+
+#^/provider-org-aid
+<div>
+	<span title="If incoming funds are being provided from the budget of another activity that is reported to IATI, this is the provider’s unique IATI activity identifier for that activity." class="ref">
+		ID <a href="{origin}/savi/?aid={_it./provider-org@provider-activity-id}" target="_blank">{_it./provider-org@provider-activity-id||}</a>
+	</span>
+</div>
+
+#^/provider-org-type
+<div class="org-type">
+	<span title="{_it./provider-org@type-description||}" class="type">
+		{_it./provider-org@type-name||}
+	</span>
+</div>
+
+#^/receiver-org-ref
+<div>
+	<span title="Machine-readable identification string for the organisation issuing the report." class="ref">
+		REF <a href="{origin}/ctrack.html?publisher={_it./receiver-org@ref}" target="_blank">{_it./receiver-org@ref||}</a>
+	</span>
+</div>
+
+#^/receiver-org-aid
+<div>
+	<span title="If outgoing funds are being provided to another activity that is reported to IATI, this is the receiver's unique IATI activity identifier for that activity." class="ref">
+		ID <a href="{origin}/savi/?aid={_it./receiver-org@receiver-activity-id}" target="_blank">{_it./receiver-org@receiver-activity-id||}</a>
+	</span>
+</div>
+
+#^/receiver-org-type
+<div class="org-type">
+	<span title="{_it./receiver-org@type-description||}" class="type">
+		{_it./receiver-org@type-name||}
+	</span>
+</div>
+
+#^budget-chart	<!--	BUDGET CHART	-->	
+<div class="showchart">
+<script type="application/json">
+{
+	chart:"Line",
+	options:{
+		width:	"920px",
+		height:	"240px",
+			showArea: true,
+			showLine: true,
+			showPoint: true,
+			axisX: {
+			type: Chartist.FixedScaleAxis,
+			divisor: 8,
+			labelInterpolationFnc: function(value) {
+				return (new Date(value*1000)).toISOString().slice(0,10)
+			}
+		},
+		axisY: {
+			referenceValue: 0,
+			offset: 80,
+			scaleMinSpace: 24,
+			type: Chartist.AutoScaleAxis,
+			labelInterpolationFnc: function(value) {
+				return ((""+parseFloat(value)).replace(/(^|[^\w.])(\d{4,})/g, function($0, $1, $2) {
+					return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
+				}))+"\r\n{_it.currency}"
+			}
+		}
+	},
+	series:[
+		{
+			className:"chart-line-{_it.name}",
+			name: "{_it.name}",
+			data: {_it.series}
+		}
+	]
+}
+</script>
+</div>
+
+#^/wrap-planned-disbursement	<!--	PLANNED DISBURSEMENT WRAPPER	-->	
+
+	<div class="wrap_budget wrap_planned_disbursement">
+		<div class="header_section sticky collapsable">Planned Disbursement <span class="count">( {_it./planned-disbursement.length||no_length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="date">START</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="date">END</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="tab_type">TYPE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="provider">PROVIDER</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="receiver">RECEIVER</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5" class="value">VALUE</th>
+				</tr>
+			</thead>
+			{_it./planned-disbursement:/planned-disbursement}
+		</table>
+		<div class="chart_disburse">
+			<div class="legend chart_14"><span></span>Planned Disbursement</div>
+			{_it./planned-disbursement-data&&_it./planned-disbursement-data:budget-chart||}
+		</div>
+	</div>
+
+<!--	PLANNED DISBURSEMENT ROWS	-->
+#^/planned-disbursement
+<tr class="row_count">
+	<td class="date">{_it./period-start@iso-date||}</td>
+	<td class="date">{_it./period-end@iso-date||}</td>
+	<td class="tab_type" title="{_it.@type-description||}">{_it.@type-name||}</td>
+	<td class="provider">
+		{_it./provider-org/narrative.0.text&&_it:/provider-org/narrative||}
+		{_it./provider-org@ref&&_it:/provider-org-ref||}
+		{_it./provider-org@provider-activity-id&&_it:/provider-org-aid||}
+		{_it./provider-org@type&&_it:/provider-org-type||}
+	</td>
+	<td class="receiver">
+		{_it./receiver-org/narrative.0.text&&_it:/receiver-org/narrative||}
+		{_it./receiver-org@ref&&_it:/receiver-org-ref||}
+		{_it./receiver-org@receiver-activity-id&&_it:/receiver-org-aid||}
+		{_it./receiver-org@type&&_it:/receiver-org-type||}
+	</td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
+</tr>
+
+#^/budget-not-provided	<!--	BUDGET-NOT-PROVIDED WRAPPER	-->	
+	<div class="wrap_budget_not_provided">
+		<div class="header_section sticky collapsable">Budget not provided</div>
+		Budget has not been provided due to <span>{_it.@budget-not-provided-name}</span>.
+	</div>
+
+#^/wrap-budget	<!--	BUDGET WRAPPER	-->	
+	<div class="wrap_budget">
+		<div class="header_section sticky collapsable">Budget <span class="count">( {_it./budget.length||no_length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">START</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="end_date">END</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="tab_type">TYPE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="status">STATUS</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4" class="value">VALUE</th>
+				</tr>
+			</thead>
+			{_it./budget:/budget}
+		</table>
+		<div class="chart_budget"><div class="legend chart_15"><span></span>Budget</div>{_it./budget-data&&_it./budget-data:budget-chart||}</div>
+	</div>
+
+<!--	BUDGET ROWS	-->
+#^/budget
+<tr class="row_count">
+	<td class="date">{_it./period-start@iso-date||}</td>
+	<td class="end_date">{_it./period-end@iso-date||}</td>
+	<td class="tab_type" title="{_it.@type-description||}">{_it.@type-name||}</td>
+	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
+</tr>
+
+#^/wrap-sector	<!--	SECTOR WRAPPER	-->	
+	<div class="header_section collapsable">sector  <span class="count">( {_it./sector.length||no_length} )</span></div>
+	<div class="wrap_sector">
+		{_it./sector-1&&_it:sectors-1||}
+		{_it./sector-2&&_it:sectors-2||}
+		{_it./sector-3&&_it:sectors-3||}
+		{_it./sector-4&&_it:sectors-4||}
+		{_it./sector-5&&_it:sectors-5||}
+		{_it./sector-6&&_it:sectors-6||}
+		{_it./sector-7&&_it:sectors-7||}
+		{_it./sector-8&&_it:sectors-8||}
+		{_it./sector-9&&_it:sectors-9||}
+		{_it./sector-10&&_it:sectors-10||}
+		{_it./sector-11&&_it:sectors-11||}
+		{_it./sector-12&&_it:sectors-12||}
+		{_it./sector-99&&_it:sectors-99||}
+		{_it./sector-98&&_it:sectors-98||}
+	</div>
+
+<!--	SECTOR TYPES	-->
+#^sectors-1
+<div class="sector_vocab">
+	<div class="header">
+		OECD DAC CRS 5 digit<span class="type">{_it./sector-1.0.@vocabulary||}</span><span class="count">( {_it./sector-1.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-1.0.@vocabulary-description||} <a href="{_it./sector-1.0.@vocabulary-url}" target="_blank">{_it./sector-1.0.@vocabulary-url}</a></div>
+	{_it./sector-1:/sector_dac||}
+	<div class="header glossary">GLOSSARY</div>
+	<div class="sector_list_wrap">{_it./sector-1:/sector_code_description}</div>
+</div>
+#^sectors-2
+<div class="sector_vocab">
+	<div class="header">
+		OECD DAC CRS 3 digit<span class="type">{_it./sector-2.0.@vocabulary||}</span><span class="count">( {_it./sector-2.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-2.0.@vocabulary-description||} <a href="{_it./sector-2.0.@vocabulary-url}" target="_blank">{_it./sector-2.0.@vocabulary-url}</a></div>
+	{_it./sector-2:/sector_dac||}
+	<div class="header glossary">GLOSSARY</div>
+	<div class="sector_list_wrap">{_it./sector-2:/sector_code_description}</div>
+</div>
+#^sectors-3
+<div class="sector_vocab">
+	<div class="header">
+		Classification of the Functions of Government (UN)<span class="type">{_it./sector-3.0.@vocabulary||}</span><span class="count">( {_it./sector-3.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-3.0.@vocabulary-description||} <a href="{_it./sector-3.0.@vocabulary-url}" target="_blank">{_it./sector-3.0.@vocabulary-url}</a></div>
+	{_it./sector-3:/sector||}
+</div>
+#^sectors-4
+<div class="sector_vocab">
+	<div class="header">
+		Statistical classification of economic activities in the European Community<span class="type">{_it./sector-4.0.@vocabulary||}</span><span class="count">( {_it./sector-4.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-4.0.@vocabulary-description||} <a href="{_it./sector-4.0.@vocabulary-url}" target="_blank">{_it./sector-4.0.@vocabulary-url}</a></div>
+	{_it./sector-4:/sector||}
+</div>
+#^sectors-5
+<div class="sector_vocab">
+	<div class="header">
+		National Taxonomy for Exempt Entities (USA)<span class="type">{_it./sector-5.0.@vocabulary||}</span><span class="count">( {_it./sector-5.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-5.0.@vocabulary-description||} <a href="{_it./sector-5.0.@vocabulary-url}" target="_blank">{_it./sector-5.0.@vocabulary-url}</a></div>
+	{_it./sector-5:/sector||}
+</div>
+#^sectors-6
+<div class="sector_vocab">
+	<div class="header">
+		AidData<span class="type">{_it./sector-6.0.@vocabulary||}</span><span class="count">( {_it./sector-6.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-6.0.@vocabulary-description||}</div>
+	{_it./sector-6:/sector||}
+</div>
+#^sectors-7
+<div class="sector_vocab">
+	<div class="header">
+		SDG Goal<span class="type">{_it./sector-7.0.@vocabulary||}</span><span class="count">( {_it./sector-7.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-7.0.@vocabulary-description||} <a href="{_it./sector-7.0.@vocabulary-url}" target="_blank">{_it./sector-7.0.@vocabulary-url}</a></div>
+	{_it./sector-7:/sector||}
+</div>
+#^sectors-8
+<div class="sector_vocab">
+	<div class="header">
+		SDG Target<span class="type">{_it./sector-8.0.@vocabulary||}</span><span class="count">( {_it./sector-8.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-8.0.@vocabulary-description||} <a href="{_it./sector-8.0.@vocabulary-url}" target="_blank">{_it./sector-8.0.@vocabulary-url}</a></div>
+	{_it./sector-8:/sector||}
+</div>
+#^sectors-9
+<div class="sector_vocab">
+	<div class="header">
+		SDG Indicator<span class="type">{_it./sector-9.0.@vocabulary||}</span><span class="count">( {_it./sector-9.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-9.0.@vocabulary-description||} <a href="{_it./sector-9.0.@vocabulary-url}" target="_blank">{_it./sector-9.0.@vocabulary-url}</a></div>
+	{_it./sector-9:/sector||}
+</div>
+#^sectors-10
+<div class="sector_vocab">
+	<div class="header">
+		Humanitarian Global Clusters (Inter-Agency Standing Committee)<span class="type">{_it./sector-10.0.@vocabulary||}</span><span class="count">( {_it./sector-10.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-10.0.@vocabulary-description||} <a href="{_it./sector-10.0.@vocabulary-url}" target="_blank">{_it./sector-10.0.@vocabulary-url}</a></div>
+	{_it./sector-10:/sector||}
+</div>
+#^sectors-11
+<div class="sector_vocab">
+	<div class="header">
+		North American Industry Classification System (NAICS)<span class="type">{_it./sector-11.0.@vocabulary||}</span><span class="count">( {_it./sector-11.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-11.0.@vocabulary-description||} <a href="{_it./sector-11.0.@vocabulary-url}" target="_blank">{_it./sector-11.0.@vocabulary-url}</a></div>
+	{_it./sector-11:/sector||}
+</div>
+#^sectors-12
+<div class="sector_vocab">
+	<div class="header">
+		UN System Function<span class="type">{_it./sector-12.0.@vocabulary||}</span><span class="count">( {_it./sector-12.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-12.0.@vocabulary-description||} <a href="{_it./sector-12.0.@vocabulary-url}" target="_blank">{_it./sector-12.0.@vocabulary-url}</a></div>
+	{_it./sector-12:/sector||}
+</div>
+#^sectors-99
+<div class="sector_vocab">
+	<div class="header">
+		Reporting Organisation<span class="type">{_it./sector-99.0.@vocabulary||}</span><span class="count">( {_it./sector-99.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-99.0.@vocabulary-description||}{_it./sector-99.0.@vocabulary-uri&&_it:sectors-vocab-uri-99||}</div>
+	{_it./sector-99:/sector||}
+</div>
+#^sectors-98
+<div class="sector_vocab">
+	<div class="header">
+		Reporting Organisation 2<span class="type">{_it./sector-98.0.@vocabulary||}</span><span class="count">( {_it./sector-98.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./sector-98.0.@vocabulary-description||}{_it./sector-98.0.@vocabulary-uri&&_it:sectors-vocab-uri-98||}</div>
+	{_it./sector-98:/sector||}
+</div>
+
+#^sectors-vocab-uri-99
+<div><a href="{_it./sector-99.0.@vocabulary-uri}" target="_blank">{_it./sector-99.0.@vocabulary-uri}</a></div>
+#^sectors-vocab-uri-98
+<div><a href="{_it./sector-98.0.@vocabulary-uri}" target="_blank">{_it./sector-98.0.@vocabulary-uri}</a></div>
+
+<!--	SECTOR DAC TEMPLATE	-->
+#^/sector_dac
+<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">{_it.@code-name||}{_it.@code-withdrawn&&_it:/withdrawn||}</span>{_it.@code&&_it:/sector_code||}
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+	</div>
+</div>
+
+<!--	SECTOR DESCRIPTIONS	-->
+#^/sector_code_description
+<div class="sector_list"> 
+	<span>{_it.@code-name||}{_it.@code-withdrawn&&_it:/withdrawn||}</span><span class="sector_list_description">{_it.@code-description||/empty-description}</span>
+</div>
+
+<!--	SECTOR NON-DAC TEMPLATE	-->
+#^/sector
+<div class="sector">
+	<div class="wrap_code">
+		{_it./narrative.0.text||_it.@code-withdrawn&&_it:/wrap_sector_code||}{_it.@code&&_it:/sector_code||}
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+	</div>
+</div>
+
+#^/wrap_sector_code
+<span class="sector_code_text">{_it./narrative.0.text||}{_it.@code-withdrawn&&_it:/withdrawn||}</span>
+
+#^/sector_code
+<span class="sector_code">{_it.@code||}</span>
+
+#^humanitarian
+<div class="humanitarian">humanitarian</div>
+
+#^/default-aid-type
+<div>{_it.@code-name}</div>
+
+#^/wrap-recipient-region	<!--	RECIPIENT REGION WRAPPER	-->
+	<div class="header_section collapsable">recipient region <span class="count">( {_it./recipient-region.length||no_length} )</span></div>
+	<div class="wrap_sector">
+		{_it./recipient-region-1&&_it:recipient-regions-1||}
+		{_it./recipient-region-2&&_it:recipient-regions-2||}
+		{_it./recipient-region-99&&_it:recipient-regions-99||}
+	</div>
+	
+<!--	RECIPIENT REGION VOCAB	-->
+#^recipient-regions-1
+<div class="sector_vocab">
+	<div class="header">
+		OECD DAC <span class="count">( {_it./recipient-region-1.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./recipient-region-1.0.@vocabulary-description||} <a href="{_it./recipient-region-1.0.@vocabulary-url}" target="_blank">{_it./recipient-region-1.0.@vocabulary-url}</a></div>
+	{_it./recipient-region-1:/recipient-region_dac||}
+</div>
+#^recipient-regions-2
+<div class="sector_vocab">
+	<div class="header">
+		UN <span class="count">( {_it./recipient-region-2.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./recipient-region-2.0.@vocabulary-description||} <a href="{_it./recipient-region-2.0.@vocabulary-url}" target="_blank">{_it./recipient-region-2.0.@vocabulary-url}</a></div>
+	{_it./recipient-region-2:/recipient-region||}
+</div>
+#^recipient-regions-99
+<div class="sector_vocab">
+	<div class="header">
+		Reporting Organisation <span class="count">( {_it./recipient-region-99.length||no_length} )</span>
+	</div>
+	<div class="subheader">{_it./recipient-region-99.0.@vocabulary-description||}</div>
+	{_it./recipient-region-99:/recipient-region||}
+</div>
+
+<!--	RECIPIENT-REGION TEMPLATE	-->
+#^/recipient-region_dac
+<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+	</div>
+</div>
+
+#^/recipient-region
+<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">{_it./narrative.0.text||}</span><span class="sector_code">{_it.@code||}</span>
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+	</div>
+</div>
+
+#^/wrap-recipient-country	<!--	RECIPIENT COUNTRY WRAPPER	-->
+	<div class="header_section collapsable">recipient country <span class="count">( {_it./recipient-country.length||no_length} )</span></div>
+	<div class="wrap_recipient_country">
+		{_it./recipient-country:/recipient-country}
+	</div>
+
+<!--	RECIPIENT-COUNTRY TEMPLATE	-->
+#^/recipient-country
+<div class="sector">
+	<div class="wrap_code">
+		<span class="sector_code_text">{_it.@code-name||}</span><span class="sector_code">{_it.@code||}</span>
+	</div><div class="wrap_bar">
+		<span class="sector_bar" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px);"><span class="sector_overlay" style="width:calc({_it.@percentage||/empty-percentage} * 3.35px); background:hsl(200,{_it.@percentage||/empty-percentage}%,50%);"></span></span><span class="sector_value">{_it.@percentage||/empty-percentage}</span>
+	</div>
+</div>
+
+#^/wrap-location	<!--	LOCATION WRAPPER	-->	
+	<div class="wrap_location">
+		<div class="header_section sticky collapsable">LOCATION  <span class="count">( {_it./location.length||no_length} )</span></div>
+		<table class="budget location sortable">
+			<thead>
+				<tr>
+					<th class="loc_name" data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">NAME</th>
+					<th class="loc_des" data-sort="string" data-sort-multicolumn="0,1,2,3,4,5">DESCRIPTION</th>
+					<th class="loc_pos" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">POSITION</th>
+					<th class="loc_class" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">CLASS</th>
+					<th class="loc_reach" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">REACH</th>
+					<th class="loc_exact" data-sort="int" data-sort-multicolumn="0,1,2,3,4,5">EXACTNESS</th>
+				</tr>
+			</thead>
+			{_it./location:/location}
+		</table>
+	</div>
+
+<!--	LOCATION ROWS	-->
+#^/location
+<tr class="row_count">
+	<td class="loc_name">
+		{_it./name/narrative.0.text&&_it:/location-narrative||}
+		{_it.@ref&&_it:/location-ref||}
+		{_it./location-id&&_it:/wrap-location-id||}
+	</td>
+	<td class="loc_des">
+		{_it./description/narrative.0.text&&_it:/location-description||}
+		{_it./activity-description/narrative.0.text&&_it:/activity-description||}
+		{_it./feature-designation@code&&_it:/location-feature||}
+	</td>
+	<td class="loc_pos">{_it./point/pos&&_it:/location-point-url||}</td>
+	<td class="loc_class" title="{_it./location-class@code-description||}" data-sort-value="{_it./location-class@code}">{_it./location-class@code-name||}</td>
+	<td class="loc_reach" title="{_it./location-reach@code-description||}" data-sort-value="{_it./location-reach@code}">{_it./location-reach@code-name||}</td>
+	<td class="loc_exact" title="{_it./exactness@code-description||}" data-sort-value="{_it./exactness@code}">{_it./exactness@code-name||}</td>
+</tr>
+
+#^/location-narrative
+<div class="loc_text">{_it./name/narrative.0.text||}</div>
+
+#^/location-description
+<div class="loc_desc" title="A description that qualifies the location, not the activity.">{_it./description/narrative.0.text||}</div>
+
+#^/activity-description
+<div class="loc_act" title="A description that qualifies the activity taking place at the location.">{_it./activity-description/narrative.0.text||}</div>
+
+#^/location-point-url
+<a href="https://www.google.com/maps/place/{_it./point/pos@latitude},{_it./point/pos@longitude}" target="_blank">
+	<span>{_it./point/pos@latitude}</span>
+	<span>{_it./point/pos@longitude}</span>
+</a>
+
+#^/location-ref
+<div>
+	<span title="An internal reference that describes the location in the reporting organisation’s own system" class="ref">
+		REF <span>{_it.@ref||}</span>
+	</span>
+</div>
+
+#^/wrap-location-id
+{_it./location-id:/location-id}
+
+#^/location-id
+{_it.@code&&_it.@vocabulary&&_it:/location-code-url||_it:/location-code}
+
+#^/location-code-url
+{_it.@vocabulary==G1&&_it:/location-vocab-url-G1||_it:/location-vocab-url}
+
+
+#^/location-vocab-url-G1
+<div>
+	<span title="A code from the gazetteer or administrative boundary repository specified by the vocabulary" class="ref">
+		ID <a href="{_it.@vocabulary-url}{_it.@code}" target="_blank">{_it.@code||}</a> ({_it.@vocabulary-name||})
+	</span>
+</div>
+
+#^/location-vocab-url
+<div>
+	<span title="A code from the gazetteer or administrative boundary repository specified by the vocabulary" class="ref">
+		ID <a href="{_it.@vocabulary-url||}" target="_blank">{_it.@code||}</a> ({_it.@vocabulary-name||})
+	</span>
+</div>
+
+#^/location-code
+<div>
+	<span title="A code from the gazetteer or administrative boundary repository specified by the vocabulary" class="ref">
+		ID <span>{_it.@code||}</span>
+	</span>
+</div>
+
+#^/location-feature
+<div>
+	<span title="A more refined coded classification of the type of feature referred to by this location." class="ref">
+		TYPE <span title="{_it./feature-designation@code-description||}">{_it./feature-designation@code-name||}</span>
+	</span> <span class="type">{_it./feature-designation@code||}</span>
+</div>
+
+#^/wrap-participating-org	<!--	PARTICIPATING ORG WRAPPER	-->	
+	<div class="wrap_participating_org">
+		<div class="header_section sticky collapsable">WHO'S INVOLVED <span class="count">( {_it./participating-org.length||no_length} )</span></div>
+		<table class="budget part_org sortable">
+			<thead>
+				<tr>
+					<th class="part_org_name" data-sort="string" data-sort-multicolumn="0,1,2,3">PARTICIPATING ORG</th>
+					<th class="part_org_ref" data-sort="string" data-sort-multicolumn="0,1,2,3">REFERENCE</th>
+					<th class="part_org_role" data-sort="int" data-sort-multicolumn="0,1,2,3">ROLE</th>
+					<th class="part_org_type" data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
+				</tr>
+			</thead>
+			{_it./participating-org:/participating-org}
+		</table>
+	</div>
+
+<!--	PARTICIPATING ORG ROWS	-->
+#^/participating-org
+<tr class="row_count">
+	<td class="part_org_name">{_it./narrative&&_it:/wrap-narrative||}</td>
+	<td class="part_org_ref">
+		{_it.@ref&&_it:/participating-org/ref-url||}
+		{_it.@crs-channel-code-name&&_it:/participating-org/crs-channel-code||}
+		{_it.@activity-id&&_it:/participating-org/activity-id||}
+	</td>
+	<td class="part_org_role" title="{_it.@role-description||}" data-sort-value="{_it.@role}">{_it.@role-name||}</td>
+	<td class="part_org_type" title="{_it.@type-description||}" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
+</tr>
+
+#^/participating-org/ref-url
+<div>
+	<span title="Machine-readable identification string for the organisation issuing the report." class="ref">
+		REF <a href="{origin}/ctrack.html?publisher={_it.@ref||}" target="_blank">{_it.@ref||}</a>
+	</span>
+</div>
+
+#^/participating-org/crs-channel-code
+<div>
+	<span title="Under CRS++ Reporting Directives the CRS channel code identifies the implementing agency." class="ref">
+		CRS <span>{_it.@crs-channel-code-name||}</span>
+	</span>
+</div>
+
+#^/participating-org/activity-id
+<div class="part_org_id">
+	<span title="A valid activity identifier published by the participating organisation which points to the activity that it has published to IATI that describes its role in this activity." class="ref">
+		ID <a href="{origin}/savi/?aid={_it.@activity-id}" target="_blank">{_it.@activity-id||}</a>
+	</span>
+</div>
+
+#^/wrap-humanitarian-scope	<!--	HUMANITARIAN SCOPE WRAPPER	-->
+	<div class="wrap_humanitarian_scope">
+		<div class="header_section sticky collapsable">humanitarian scope <span class="count">( {_it./humanitarian-scope.length||no_length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th class="hum_title" data-sort="string" data-sort-multicolumn="0,1,2,3">TITLE</th>
+					<th class="hum_code" data-sort="string" data-sort-multicolumn="0,1,2,3">CODE</th>
+					<th class="hum_vocab" data-sort="int" data-sort-multicolumn="0,1,2,3">VOCABULARY</th>
+					<th class="hum_type" data-sort="int" data-sort-multicolumn="0,1,2,3">TYPE</th>
+				</tr>
+			</thead>
+			{_it./humanitarian-scope:/humanitarian-scope}
+		</table>
+	</div>
+
+<!--	HUMANITARIAN SCOPE ROWS	-->
+#^/humanitarian-scope
+<tr class="row_count">
+	<td class="hum_title">{_it./narrative&&_it:/wrap-narrative||}</td>
+	<td class="hum_code">{_it.@code||}</td>
+	<td class="hum_vocab" data-sort-value="{_it.@vocabulary}">
+		{_it.@vocabulary==99&&_it:/humanitarian-vocab-99||_it:/humanitarian-vocab-url}
+	</td>
+	<td class="hum_type" data-sort-value="{_it.@type}">{_it.@type-name||}</td>
+</tr>
+
+#^/humanitarian-vocab-url
+<a href="{_it.@vocabulary-url}" target="_blank">{_it.@vocabulary-name}</a>
+
+#^/humanitarian-vocab-99
+{_it.@vocabulary-uri&&_it:/humanitarian-vocab-uri||_it.@vocabulary-name}
+
+#^/humanitarian-vocab-uri
+<a href="{_it.@vocabulary-uri}" target="_blank">{_it.@vocabulary-name}</a>
+
+#^/wrap-description	<!--	DESCRIPTION WRAPPER	-->
+	<div class="wrap_description">
+		{_it./description:/description-narrative}
+	</div>
+	
+<!--	IATI ACTIVITY DESCRIPTION	-->
+#^/description-narrative
+{_it.@type&&_it:/description-type||_it:/description-type-default}
+<div class="text">{_it./narrative&&_it:/wrap-narrative||}</div>
+
+#^/description-type
+<div class="header" title="{_it.@type-description||}">{_it.@type-name}</div>
+#^/description-type-default
+<div class="header">DESCRIPTION</div>
+
+<!--	IATI ACTIVITY DATE WRAPPER	-->
+#^/wrap-activity-date-1
+<div class="planned_start"><span>Planned start date</span> {_it./activity-date-1.@iso-date||}</div>
+#^/wrap-activity-date-2
+<div class="actual_start"><span>Actual start date</span> {_it./activity-date-2.@iso-date||}</div>
+#^/wrap-activity-date-3
+<div class="planned_end"><span>Planned end date</span> {_it./activity-date-3.@iso-date||}</div>
+#^/wrap-activity-date-4
+<div class="actual_end"><span>Actual end date</span> {_it./activity-date-4.@iso-date||}</div>
+
+#^body	<!--	ORG	-->
+<div>
+	{frankenstein./iati-organisations/iati-organisation:iati-organisation}
+</div>
+
+#^iati-organisation
+<div class="org">
+	<div class="header">ORGANISATION FILE</div>
+	<div class="wrap_name_org">{_it./name/narrative.0.text||}</div>
+	<div class="wrap_reporting_org">	<!--	REPORTING ORG	-->
+		<div class="text">Reported by</div><div class="reporting_org"><a href="{origin}/ctrack.html?publisher={_it./reporting-org@ref}" target="blank">{_it./reporting-org/narrative.0.text||}</a> <span class="ref">{_it./reporting-org@ref||}</span> <span class="type">{_it./reporting-org@type-name||}</span>{_it./reporting-org@secondary-reporter==1&&secondary_reporter||}</div>
+	</div>
+	<div class="wrap_iati_identifier org_id">	<!--	ORG IDENTIFIER AND SOURCES	-->
+		<div class="text">Organisation identifier <a href="{origin}/savi/?pid={_it./organisation-identifier}"  target="_blank">{_it./organisation-identifier||}</a></div>
+		<div class="data_source">
+			<a class="xml" href="{origin}/q.xml?pid={_it./organisation-identifier}" target="_blank"><span>view</span> xml</a><a class="json" href="{origin}/q.json?&from=xson&root=/iati-organisations/iati-organisation&pid={_it./organisation-identifier}" target="_blank"><span>view</span> json</a><a class="dlogs" href="{origin}/ctrack.html#view=dash_sluglog&slug={_it.@dataset}" target="_blank"><span>view dataset</span> logs</a><a class="slug" href="http://iatiregistry.org/dataset/{_it.@dataset}" target="_blank"><span>view iati registry</span> dataset</a><a class="csv" href="{origin}/q.csv?&from=xson&root=/iati-organisations/iati-organisation&pid={_it./organisation-identifier}" target="_blank"><span>download</span> csv</a>
+		</div>
+	</div>
+	{_it./document-link&&_it:/wrap-document-link||}
+	{_it./total-budget&&_it:/wrap-total-budget||}
+	{_it./total-expenditure&&_it:/wrap-total-expenditure||}
+	{_it./recipient-org-budget&&_it:/wrap-recipient-org-budget||}
+	{_it./recipient-region-budget&&_it:/wrap-recipient-region-budget||}
+	{_it./recipient-country-budget&&_it:/wrap-recipient-country-budget||}
+</div>
+
+#^/wrap-document-link	<!--	DOCUMENTS WRAPPER	-->
+	<div class="wrap_document">
+		<div class="header_doc collapsable">DOCUMENTS <span class="count">( {_it./document-link.length||no_length} )</span></div>
+		{_it./document-link:/document-link}
+	</div>
+	
+#^/wrap-total-budget	<!--	TOTAL BUDGET WRAPPER	-->	
+	<div class="wrap_total_budget">
+		<div class="header_section sticky collapsable">Total Budget <span class="count">( {_it./total-budget.length||no_length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">START</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="date">END</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="line">BUDGET LINE</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4" class="status">STATUS</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4" class="value">VALUE</th>
+				</tr>
+			</thead>
+			{_it./total-budget:/total-budget}
+		</table>
+	</div>
+	
+#^/wrap-total-expenditure	<!--	TOTAL EXPENDITURE WRAPPER	-->	
+	<div class="wrap_total_expenditure">
+		<div class="header_section sticky collapsable">Total Expenditure <span class="count">( {_it./total-expenditure.length||no_length} )</span></div>
+		<table class="budget sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3" class="date">START</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3" class="date">END</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3" class="line">BUDGET LINE</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3" class="value">VALUE</th>
+				</tr>
+			</thead>
+			{_it./total-expenditure:/total-expenditure}
+		</table>
+	</div>
+	
+#^/wrap-recipient-org-budget	<!--	RECIPIENT ORG BUDGET WRAPPER	-->	
+	<div class="wrap_recipient_budget">
+		<div class="header_section sticky collapsable">Recipient Org Budget <span class="count">( {_it./recipient-org-budget.length||no_length} )</span></div>
+		<table class="budget rec_country sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="date">START</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="date">END</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="recipient">RECIPIENT COUNTRY</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="line">BUDGET LINE</th>					
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="status">STATUS</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5" class="value">VALUE</th>
+				</tr>
+			</thead>
+			{_it./recipient-org-budget:/recipient-org-budget}
+		</table>
+	</div>
+	
+#^/wrap-recipient-region-budget	<!--	RECIPIENT REGION BUDGET WRAPPER	-->	
+	<div class="wrap_recipient_budget">
+		<div class="header_section sticky collapsable">Recipient Region Budget <span class="count">( {_it./recipient-region-budget.length||no_length} )</span></div>
+		<table class="budget rec_country sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="date">START</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="date">END</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="recipient">RECIPIENT REGION</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="line">BUDGET LINE</th>					
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="status">STATUS</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5" class="value">VALUE</th>
+				</tr>
+			</thead>
+			{_it./recipient-region-budget:/recipient-region-budget}
+		</table>
+	</div>
+	
+#^/wrap-recipient-country-budget	<!--	RECIPIENT COUNTRY BUDGET WRAPPER	-->	
+	<div class="wrap_recipient_budget">
+		<div class="header_section sticky collapsable">Recipient Country Budget <span class="count">( {_it./recipient-country-budget.length||no_length} )</span></div>
+		<table class="budget rec_country sortable">
+			<thead>
+				<tr>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="date">START</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="date">END</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="recipient">RECIPIENT COUNTRY</th>
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="line">BUDGET LINE</th>					
+					<th data-sort="string" data-sort-multicolumn="0,1,2,3,4,5" class="status">STATUS</th>
+					<th data-sort="int" data-sort-multicolumn="0,1,2,3,4,5" class="value">VALUE</th>
+				</tr>
+			</thead>
+			{_it./recipient-country-budget:/recipient-country-budget}
+		</table>
+	</div>
+
+#^/total-budget		<!--	TOTAL BUDGET ROWS	-->
+<tr class="row_count">
+	<td class="date">{_it./period-start@iso-date||}</td>
+	<td class="date">{_it./period-end@iso-date||}</td>
+	<td class="line">{_it./budget-line:/budget-line||}</td>
+	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
+</tr>
+
+#^/total-expenditure	<!--	TOTAL EXPENDITURE ROWS	-->
+<tr class="row_count">
+	<td class="date">{_it./period-start@iso-date||}</td>
+	<td class="date">{_it./period-end@iso-date||}</td>
+	<td class="line">{_it./expense-line:/budget-line||}</td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
+</tr>
+
+#^/recipient-org-budget	<!--	RECIPIENT ORG BUDGET ROWS	-->
+<tr class="row_count">
+	<td class="date">{_it./period-start@iso-date||}</td>
+	<td class="date">{_it./period-end@iso-date||}</td>
+	<td class="recipient">{_it./recipient-org||}<div>{_it./recipient-org@ref&&_it:/recipient-org-ref||}</div></td>
+	<td class="line">{_it./budget-line:/budget-line||}</td>
+	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
+</tr>
+
+#^/recipient-region-budget	<!--	RECIPIENT REGION BUDGET ROWS	-->
+<tr class="row_count">
+	<td class="date">{_it./period-start@iso-date||}</td>
+	<td class="date">{_it./period-end@iso-date||}</td>
+	<td class="recipient">
+		{_it./recipient-region@code-name||}
+		{_it./recipient-region@vocabulary==1&&_it./recipient-region@code&&_it:/recipient-region-code||}
+		{_it./recipient-region@vocabulary&&_it:/recipient-region-vocabulary||}
+	</td>
+	<td class="line">{_it./budget-line:/budget-line||}</td>
+	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
+</tr>
+
+#^/recipient-country-budget	<!--	RECIPIENT COUNTRY BUDGET ROWS	-->
+<tr class="row_count">
+	<td class="date">{_it./period-start@iso-date||}</td>
+	<td class="date">{_it./period-end@iso-date||}</td>
+	<td class="recipient">{_it./recipient-country@code-name||}{_it./recipient-country@code&&_it:/recipient-country-code||}</td>
+	<td class="line">{_it./budget-line:/budget-line||}</td>
+	<td class="status" title="{_it.@status-description||}">{_it.@status-name||}</td>
+	<td class="value" data-sort-value="{_it./value}">{_it./value-human||}<div class="currency">{_it./value@currency||}</div></td>
+</tr>
+
+#^/recipient-org-ref
+<div><span class="ref">REF {_it./recipient-org@ref||}</span></div>
+
+#^/recipient-region-code
+<span class="type" style="margin-left:5px;">{_it./recipient-region@code||}</span>
+
+#^/recipient-region-vocabulary
+<div><span class="ref">VOCAB {_it./recipient-region@vocabulary||}</span></div>
+
+#^/recipient-country-code
+<span class="type" style="margin-left:5px;">{_it./recipient-country@code||}</span>
+
+#^/budget-line	<!--	BUDGET LINE	-->
+<div class="wrap_tab"><div class="tab_text">{_it./narrative:/budget-line-narrative||}</div><div class="tab_currency">{_it./value-human||}<div>{_it./value@currency||}</div></div></div>
+
+#^/budget-line-narrative trim=ends	<!--	BUDGET LINE NARRATIVE	-->
+{_it.text}
+
+#^/document-link	<!--	DOCUMENT LINK	-->
+<a class="doc_link" href="{_it.@url}" target="_blank">
+	<span class="wrap_doc_link">
+		{_it./title/narrative&&_it:/document-title||}
+		{_it./description/narrative&&_it:/document-description||}
+		<span class="block">
+			{_it./language:/document-link/language||}{_it./document-date@iso-date&&_it:/document-date||}{_it./category&&_it:/document-category||}
+			{_it./recipient-country&&_it:/document-recipient-country||}
+		</span>
+	</span>
+</a>
+
+#^/document-title
+<span class="block">{_it./title/narrative:/document-link/title/narrative}{_it.@format&&_it:/document-format||}</span>
+
+#^/document-format
+<span class="doc_format">{_it.@format}</span>
+
+#^/document-description
+{_it./description/narrative:/document-link/description/narrative}
+
+#^/document-date
+<span class="doc_date">{_it./document-date@iso-date||}</span>
+
+#^/document-category
+{_it./category:/document-link/category}
+
+#^/document-recipient-country
+{_it./recipient-country:/document-link/recipient-country}
+
+#^/document-link/title/narrative	<!--	DOCUMENT MULTIPLE ITEMS	-->
+<span class="doc_title">{_it.text||}</span>
+
+#^/document-link/description/narrative
+<span class="block"><span class="doc_desc">{_it.text||}</span></span>
+
+#^/document-link/category
+<span class="doc_cat">{_it.@code-name||}</span>
+
+#^/document-link/language
+<span class="doc_lang">{_it.@code||}</span>
+
+#^/document-link/recipient-country
+<span class="doc_country">{_it.@code-name||}</span>
+
+#^/document-link/recipient-country/narrative <!--	not used	-->
+<span class="doc_country">{_it.text||}</span>
+
+#^/wrap-narrative		<!--	Multiple NARRATIVE	-->
+{_it./narrative:/narrative||}
+
+#^/wrap-title-narrative	
+{_it./title/narrative:/narrative||}
+
+#^/narrative trim=ends
+<div class="narrative">{_it.text||}</div>
+
+#^/empty-description	<!--	DISPLAY THIS WHEN DESCRIPTION IS MISSING IN IATI STANDARD CODELISTS	-->
+No description provided
+
+#^/empty-percentage trim=ends	<!--	USE THIS WHEN PERCENTAGE IS MISSING IN DATA	-->
+0
+
+#^/withdrawn	<!--	USE WHEN VOCAB/CODE/THING IS WITHDRAWN	-->
+ <span class="withdrawn" title="Withdrawn Codelist">Withdrawn</span>
+ 
+#^no_length	<!--	DISPLAY WHEN NO LENGTH IS FOUND	-->
+-
+
+#^theme_button trim=ends
+
+<div id="theme_toggle" class="theme_button" onclick="$('body').toggleClass('print')">Change theme</div>
+
+

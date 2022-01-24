@@ -1,0 +1,223 @@
+#crumbname_dash_quality
+{crumbname_dash_quality_text}
+
+#view_dash_quality
+{dash_wrap}
+{dash_navi}
+<style>{css_dash_quality}{css_dash}</style>
+{dash_quality_body}
+{view_tail}
+
+#dash_list_country_datas
+#dash_list_country_data
+<tr>
+	<td title="{country_valid} country code" class="cc country_{country_valid}">
+		<a href="/q.xml?from=act,country&country_code={country_code}&reporting_ref={dash_quality_pub}" target="_blank" rel="noopener noreferrer">{country_code}</a>
+	</td>
+	<td title="Number of activities reported" class="country_{country_valid}">{count}</td>
+</tr>
+
+#dash_list_slug_datas
+#dash_list_slug_data
+<tr>
+	<td title="Unique Dataset ID" class="set"><a href="http://iatiregistry.org/dataset/{slug}" target="_blank" rel="noopener noreferrer">{slug}</a></td>
+	<td title="Number of activities within this dataset"><a href="#view=dash_sluglog&slug={slug}">{count}</a></td>
+</tr>
+
+#dash_quality_body
+<div class="default">
+	<div class="maxwrap">
+		<table class="name">
+			<tr>
+				<td>Publisher Name <span>Converted from ID</span></td>
+				<td>{dash_quality_pub_name}</td>
+				<td rowspan="2" class="visit">
+					<a href="/ctrack.html?&publisher={dash_quality_pub}#view=publisher" target="_blank" rel="noopener noreferrer">View on d-portal</a>
+					<a href="https://www.iatiregistry.org/publisher/{dash_quality_pub_slug}" target="_blank" rel="noopener noreferrer">View on IATI Registry</a>
+				</td>
+			</tr>
+			<tr>
+				<td>Publisher ID</td>
+				<td>{dash_quality_pub}</td>
+			</tr>
+		</table>
+		<table class="quality">
+			<tr>
+				<td class="act_total">
+					<div>{dash_quality_act_count}</div>
+					<div>Unique Activities</div>
+					<div>Total number of activities reported by this publisher</div>
+				</td>
+				<td class="act_country">
+					<div>{dash_quality_country_count}</div>
+					<div>Countries</div>
+					<div>Total number of recipient countries reported by this publisher</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan=2 class="data_numbers">
+					<table class="actdate_data country_data">
+						<tr>
+							<th>Activity Type</th>
+							<th>Number of activities</th>
+						</tr>
+						<tr>
+							<td>Total</td>
+							<td>{dash_quality_act_count_num}</td>
+						</tr>
+						<tr>
+							<td>Ended</td>
+							<td>{dash_list_actdate_act_ended}</td>
+						</tr>
+						<tr>
+							<td>Planned</td>
+							<td>{dash_list_actdate_act_planned}</td>
+						</tr>
+						<tr>
+							<td>Active</td>
+							<td>{dash_list_actdate_act_active}</td>
+						</tr>
+						<tr>
+							<td>Bad or missing dates so unclassified</td>
+							<td>{dash_list_actdate_act_missing}</td>
+						</tr>
+						<tr>
+							<td>Missing end date only</td>
+							<td>{dash_list_actdate_act_missing_end}</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="act_dataset">
+					<div>{dash_quality_dataset_count}</div>
+					<div>IATI Datasets</div>
+					<div>Total number of datasets reported by this publisher</div>
+				</td>
+				<td class="act_invalid">
+					<div>{dash_quality_country_total_invalid}</div>
+					<div>Invalid Recipients</div>
+					<div>Instances of invalid recipient countries across all activities</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="act_trans">
+					<div>{dash_quality_trans_count}</div>
+					<div>Transactions</div>
+					<div>Total number of reported transactions across all activities</div>
+				</td>
+				<td class="act_budget">
+					<div>{dash_quality_budget_count}</div>
+					<div>Budgets</div>
+					<div>Total number of reported budgets across all activities</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="dataset_back">
+					<table class="country_data dataset">
+						<tr>
+							<td colspan="2" class="info">
+								<p>Dataset name links to IATI Registry in new window.</p>
+								<p>Activities link to dataset logs.</p>
+							</td>
+						</tr>
+						<tr>
+							<th>IATI Registry Datasets</th>
+							<th>Activities</th>
+						</tr>
+						{dash_list_slug_datas}
+					</table>
+				</td>
+				<td>
+					<table class="country_data">
+						<tr>
+							<td>
+								<div class="country_title">Total recipient countries</div>
+								<div class="country_title">Total <i class="invalid">invalid</i> recipients</div>
+								<div class="country_title"><i class="invalid">Invalid</i> recipients %</div>
+							</td>
+							<td>
+								<div class="country_title">{dash_quality_country_count}</div>
+								<div class="country_title">{dash_quality_country_total_invalid}</div>
+								<div class="country_title">{dash_quality_country_total_invalid_pct}%</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2" class="no_border">
+								<div class="note div">Links below to XML open new window</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Country Code</th>
+							<th>Activities</th>
+						</tr>
+						{dash_list_country_datas}
+					</table>
+				</td>
+			</tr>
+		</table>
+		<a href="#view=dash" class="back_link dash">Back to publisher list</a>
+	</div>
+</div>
+
+#css_dash_quality
+.default.more_data			{padding:0 20px; box-sizing:border-box;}
+.note						{font-style:italic; font-weight:initial;}
+.note.div					{font-size:0.65em; line-height:1.2em; padding-top:5px; text-align:left;}
+.country_subtitle			{font-size:1.4em; margin-top:10px; margin-bottom:10px;}
+
+table.quality		{border-collapse:separate; border-spacing:20px; margin:0 auto; width:1000px; table-layout:fixed; margin-left:-20px;}
+table.quality td	{background-color:#111738; border-radius:6px; font-size:1.4em; padding:20px; text-align:center;}
+table.quality td div:first-of-type	{font-size:3.6em; padding-bottom:20px;}
+table.quality td div:nth-of-type(2)	{font-size:1.0em;}
+table.quality td div:last-of-type	{font-size:0.65em; line-height:1.2em; padding-top:10px; vertical-align:bottom;}
+
+table.quality td.act_total 	 {background-color:#010933;}
+table.quality td.act_dataset {background-color:#081d1a;}
+table.quality td.act_invalid {background-color:#170d15;}
+table.quality td.act_trans 	 {background-color:#0d170d;}
+table.quality td.act_budget  {background-color:#1d0808;}
+
+table.country_data th				{border-bottom:1px solid #3d4363; font-size:0.9em; font-weight:bold; padding:10px 0; text-align:left;}
+table.country_data th:last-child	{text-align:right;}
+table.country_data					{width:100%; border-collapse:collapse; border-spacing:20px; margin:0 auto;}
+table.country_data tr:first-child td, table.country_data td		{border:0; text-align:left;}
+table.country_data td					{background-color:initial; border-bottom:1px solid #3d4363; font-size:0.9em; padding:0px 40px 0px 0;}
+table.country_data td:last-child		{padding-right:0px; text-align:right; line-height:36px;}
+table.country_data td div.country_title	{font-size:1.2em; padding:10px 0 0 0; line-height:22px; word-break:break-all;}
+table.country_data td:last-child div.country_title	{text-align:right;}
+table.country_data tr:last-child td		{border-bottom:0;}
+table.country_data td.cc				{padding:0;}
+table.country_data td.cc a				{display:block; padding:10px 30px 10px 0;}
+
+table.country_data td.no_border		{border:0; text-align:left;}
+
+table.actdate_data.country_data td	{line-height:46px;}
+
+table.country_data td.country_invalid a {color:#5872ff; min-width:150px;}
+table.country_data td.country_invalid   {color:#9E9E9E; background-color:#111738; font-size:initial;}
+table.country_data td.country_valid	  	{font-size:initial;}
+
+table.quality td.data_numbers		{background-color:initial;}
+table.quality td.dataset_back		{background-color:transparent;}
+
+table.name					{margin:0 auto; width:960px;}
+table.name td				{padding-bottom:20px; vertical-align:middle;}
+table.name tr:first-child td:first-child span	{display:block; font-size:0.7em; padding-top:5px; font-style:italic;}
+table.name td:first-child	{font-size:1.2em; width:17%;}
+table.name td:nth-child(2)	{font-size:2.0em; padding-right:20px;}
+table.name td.visit			{padding:0px; text-align:center; vertical-align:middle; width:200px;}
+table.name td.visit a		{display:block; background-color:#111738; color:#bdbdbd; padding:20px 0px; border-radius:6px; margin-bottom:10px;}
+table.name td.visit a:hover	{background-color:#010933;}
+
+table.dataset p						{font-size:16px; margin:0;}
+table.country_data.dataset td 		{font-size:15px; vertical-align:middle;}
+table.country_data.dataset td.info	{padding-bottom:20px; font-style:italic;}
+
+table.country_stats			{width:500px;}
+table.country_stats table.country_data	{width:460px;}
+
+table.actdate_data.country_data td:first-child, table.actdate_data.country_data th:first-child	{text-align:right; width:55%;}
+table.actdate_data.country_data th:first-child	{padding:10px 40px 0 0;}
+table.actdate_data.country_data td:last-child, table.actdate_data.country_data th:last-child	{text-align:left;}
+table.actdate_data.country_data td:last-child	{font-size:1.5em;}

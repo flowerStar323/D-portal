@@ -1,0 +1,80 @@
+#crumbname_list_activities
+{crumbname_list_activities_text}
+
+#view_list_activities
+{view_head}
+<style>{css}</style>
+{beige}
+{main_head}
+{main_min}
+{about_data_links}
+{list_activities_head}
+<div class="title_wrap">
+	<table class="title">
+		<tr>
+			<td class="icon"><img src="{flava}activity_icon.png" alt="{activity_icon_alt_text}" width="40" height="40"/></td>
+			<td>{view_list_activities_text}</td>
+		</tr>
+	</table>
+	<div class="table_wrap">
+		<table class="activity">
+			{table_activities_header_amount}
+			{list_activities_datas}
+		</table>
+		<div class="download_wrap"><a download="dportal_list_activities.csv" href="{list_activities_datas_csv}" class="csv_download">{download_csv_text}</a></div>
+	</div>
+	{back_portal}
+</div>
+{list_activities_data_description}
+{main_datainvestigators}
+{view_tail}
+
+#list_activities_data_description
+<div class="description_wrap">
+	<div class="footer_notes">
+		<span class="title">{donor_activities_data_description_title_text}</span>
+		<p>{donor_activities_data_description_text}</p>
+		<p><span class="title sub">{main_data_paragraph9_text}</span>{main_data_paragraph10_text}</p>
+		<p>{main_data_paragraph11_text}</p>
+		<p class="about_data">
+			<a href="#view=data_quality" class="read">{read_more_text}</a><a href="about.html#sources" class="read right">{read_links_text}</a>
+		</p>
+	</div>
+</div>
+
+#list_activities_data
+<tr onclick="return ctrack.url('#view=act&aid={aid}');">
+	<td class="num">{num}.</td>
+	<td class="title">
+		<a class="percent">
+			{title}
+			<span>{reported_by_text}</span>
+		</a>
+	</td>
+	<td class="date" title="{table_active_date_tip_text}">{date_end}</td>
+	<td class="value">
+		<div class="activities_spend_wrap">
+			<div class="activities_spend" title="{activities_spend_text}">{commitment}<span class="currency">{currency}</span></div>
+			<div class="activities_barchart_wrap" title="{activities_percentage_tip_text}">
+				<div class="activities_percent_max">
+					<div style="width:{pct}px;" class="activities_percent"></div>
+				</div>
+			</div>
+		</div>
+	</td>
+</tr>
+
+
+#list_activities_head
+<div class="head_wrap">
+	<div class="icon_wrap">
+		<img src="{flava}total_icon_big.png" alt="{money_title_icon_alt_text}" width="330" height="180"/>	
+	</div><div class="peak_wrap">
+		<div class="list_peak_space"></div>
+		<div class="list_peak"></div>
+</div><div class="head_title_wrap">
+		<div class="list_head_title">
+			<span class="list_stats_num">{list_activities_count}</span><span class="list_stats_title">{stats_total_table_text}</span>				
+		</div>
+	</div>
+</div>
